@@ -1,0 +1,27 @@
+@import "tailwindcss";
+
+@theme {
+  /* Base palette — overridden by NoCMS design brief overlay at scaffold time */
+  --color-primary: #5F7A5E;
+  --color-secondary: #B5654A;
+  --color-accent: #C4882B;
+  --color-background: #FAF6EF;
+  --color-surface: #F7F2EB;
+  --color-text: #2C2218;
+  --color-muted: #7A6E62;
+
+  /* Extended palette */
+  --color-primary-dark: #3E5A3D;
+  --color-primary-light: #DDE8DC;
+  --color-secondary-dark: #8E4A33;
+  --color-secondary-light: #F2DDD4;
+  --color-accent-light: #F5E6C8;
+  --color-sand: #E8DCC8;
+  --color-linen: #F7F2EB;
+  --color-warm-brown: #6B4D3A;
+  --color-rich-brown: #4A3228;
+
+  --font-heading: "Libre Baskerville", ui-serif, Georgia, serif;
+  --font-body: "Open Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+}
