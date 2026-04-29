@@ -47,7 +47,7 @@ export default async function UnitGroupsPage({ params }: Props) {
 
   let unitGroups: UnitGroup[];
   try {
-    unitGroups = await getUnitGroups(facility.fms, facility.id);
+    unitGroups = await getUnitGroups(facility.id);
   } catch (err) {
     return (
       <main className="mx-auto max-w-3xl px-6 py-16">

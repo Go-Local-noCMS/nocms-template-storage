@@ -1,17 +1,19 @@
 /**
  * Submit a soft reservation (lead) to the nocms backend.
  *
- * POST /api/v3/{fms}/reservation. Returns { leadUuid, verifyToken } — the
- * caller MUST persist both; downstream flows (lease prep, conversion) require
- * them. POSTs are NOT idempotent; do not silently retry on 5xx — surface to
- * the user.
+ * POST /api/v3/reservation. The proxy resolves the active FMS adapter from
+ * the facilityUuid in the body and delegates to the vendor; the template
+ * stays vendor-neutral.
+ *
+ * Returns { leadUuid, verifyToken } — the caller MUST persist both;
+ * downstream flows (lease prep, conversion) require them. POSTs are NOT
+ * idempotent; do not silently retry on 5xx — surface to the user.
  *
  * Build the body conditionally — never send empty strings or null for unfilled
  * optional fields. See `omit_unset_optionals` in the monument-reservation skill.
  */
 
 import { apiFetch } from "./apiFetch";
-import type { SupportedFms } from "../../types/Facility";
 import type { ReservationRequest, ReservationResponse } from "../../types/Reservation";
 
 export class ReservationValidationError extends Error {
@@ -21,11 +23,8 @@ export class ReservationValidationError extends Error {
   }
 }
 
-export async function postReservation(
-  fms: SupportedFms,
-  body: ReservationRequest,
-): Promise<ReservationResponse> {
-  const res = await apiFetch(`/api/v3/${fms}/reservation`, {
+export async function postReservation(body: ReservationRequest): Promise<ReservationResponse> {
+  const res = await apiFetch(`/api/v3/reservation`, {
     method: "POST",
     body: JSON.stringify(body),
     cache: "no-store",
@@ -36,7 +35,7 @@ export async function postReservation(
     throw new ReservationValidationError(400, text);
   }
   if (res.status === 403) {
-    throw new Error(`reservation: ${fms} key does not own facility ${body.facilityUuid} (403)`);
+    throw new Error(`reservation: no FMS key on this project owns facility ${body.facilityUuid} (403)`);
   }
   if (!res.ok) {
     throw new Error(`reservation submit failed: ${res.status} ${res.statusText}`);

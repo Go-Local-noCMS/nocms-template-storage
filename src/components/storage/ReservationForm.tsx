@@ -21,12 +21,10 @@
  */
 
 import { useState } from "react";
-import type { SupportedFms } from "@/types/Facility";
 import type { ReservationRequest } from "@/types/Reservation";
 import { postReservation, ReservationValidationError } from "@/lib/api/postReservation";
 
 interface ReservationFormProps {
-  fms: SupportedFms;
   facilityUuid: string;
   unitGroupUuid: string;
 }
@@ -65,7 +63,7 @@ const stripDigits = (s: string) => s.replace(/\D+/g, "");
 const STATE_RE = /^[A-Z]{2}$/;
 const ZIP_RE = /^(?:\d{5}(?:-\d{4})?|[A-Z]\d[A-Z] \d[A-Z]\d)$/;
 
-export function ReservationForm({ fms, facilityUuid, unitGroupUuid }: ReservationFormProps) {
+export function ReservationForm({ facilityUuid, unitGroupUuid }: ReservationFormProps) {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<Status>({ kind: "idle" });
 
@@ -103,7 +101,7 @@ export function ReservationForm({ fms, facilityUuid, unitGroupUuid }: Reservatio
     };
 
     try {
-      const result = await postReservation(fms, body);
+      const result = await postReservation(body);
       setStatus({
         kind: "success",
         leadUuid: result.data.leadUuid,

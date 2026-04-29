@@ -47,7 +47,6 @@ export default async function ReservePage({ params }: Props) {
 
       <div className="mt-8">
         <ReservationForm
-          fms={facility.fms}
           facilityUuid={facility.id}
           unitGroupUuid={unitGroupUuid}
         />
