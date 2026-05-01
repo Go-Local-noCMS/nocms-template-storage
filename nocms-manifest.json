@@ -1,0 +1,165 @@
+{
+  "version": 1,
+  "components": {
+    "divider": {
+      "file": "src/components/ui/Divider.tsx",
+      "tag": "div"
+    },
+    "motion-wrapper": {
+      "file": "src/components/ui/MotionWrapper.tsx",
+      "tag": "div"
+    },
+    "badge": {
+      "file": "src/components/ui/Badge.tsx",
+      "tag": "span"
+    },
+    "button": {
+      "file": "src/components/ui/Button.tsx",
+      "tag": "button"
+    },
+    "page-hero": {
+      "file": "src/components/layout/PageHero.tsx",
+      "tag": "section"
+    },
+    "navbar": {
+      "file": "src/components/layout/Navbar.tsx",
+      "tag": "header"
+    },
+    "footer": {
+      "file": "src/components/layout/Footer.tsx",
+      "tag": "footer"
+    },
+    "section-wrapper": {
+      "file": "src/components/layout/SectionWrapper.tsx",
+      "tag": "section"
+    },
+    "resource-cards": {
+      "file": "src/components/content/ResourceCards.tsx",
+      "tag": "section"
+    },
+    "faq-accordion": {
+      "file": "src/components/content/FaqAccordion.tsx",
+      "tag": "section"
+    },
+    "stats-bar": {
+      "file": "src/components/content/StatsBar.tsx",
+      "tag": "section"
+    },
+    "team-grid": {
+      "file": "src/components/content/TeamGrid.tsx",
+      "tag": "section"
+    },
+    "resource-detail": {
+      "file": "src/components/content/ResourceDetail.tsx",
+      "tag": "article"
+    },
+    "life-here-detail": {
+      "file": "src/components/content/LifeHereDetail.tsx",
+      "tag": "article"
+    },
+    "care-type-detail": {
+      "file": "src/components/content/CareTypeDetail.tsx",
+      "tag": "article"
+    },
+    "testimonials": {
+      "file": "src/components/content/Testimonials.tsx",
+      "tag": "section"
+    },
+    "contact-form": {
+      "file": "src/components/content/ContactForm.tsx",
+      "tag": "div"
+    },
+    "cta-banner": {
+      "file": "src/components/content/CTABanner.tsx",
+      "tag": "section"
+    },
+    "care-cards": {
+      "file": "src/components/content/CareCards.tsx",
+      "tag": "section"
+    },
+    "pricing-cards": {
+      "file": "src/components/content/PricingCards.tsx",
+      "tag": "section"
+    },
+    "why-section": {
+      "file": "src/components/content/WhySection.tsx",
+      "tag": "section"
+    },
+    "crisis-band": {
+      "file": "src/components/content/CrisisBand.tsx",
+      "tag": "section"
+    },
+    "photo-grid": {
+      "file": "src/components/content/PhotoGrid.tsx",
+      "tag": "section"
+    },
+    "facility-card": {
+      "file": "src/components/storage/FacilityCard.tsx",
+      "tag": "article"
+    },
+    "reservation-form": {
+      "file": "src/components/storage/ReservationForm.tsx",
+      "tag": "div"
+    },
+    "unit-group-card": {
+      "file": "src/components/storage/UnitGroupCard.tsx",
+      "tag": "article"
+    }
+  },
+  "pages": {
+    "/": {
+      "file": "src/app/page.tsx"
+    },
+    "/about": {
+      "file": "src/app/about/page.tsx"
+    },
+    "/about/our-team": {
+      "file": "src/app/about/our-team/page.tsx"
+    },
+    "/contact": {
+      "file": "src/app/contact/page.tsx"
+    },
+    "/life-here": {
+      "file": "src/app/life-here/page.tsx"
+    },
+    "/life-here/[slug]": {
+      "file": "src/app/life-here/[slug]/page.tsx"
+    },
+    "/living-options": {
+      "file": "src/app/living-options/page.tsx"
+    },
+    "/living-options/[slug]": {
+      "file": "src/app/living-options/[slug]/page.tsx"
+    },
+    "/locations": {
+      "file": "src/app/locations/page.tsx"
+    },
+    "/locations/[slug]": {
+      "file": "src/app/locations/[slug]/page.tsx"
+    },
+    "/locations/[slug]/reserve/[unitGroupUuid]": {
+      "file": "src/app/locations/[slug]/reserve/[unitGroupUuid]/page.tsx"
+    },
+    "/locations/[slug]/unit-groups": {
+      "file": "src/app/locations/[slug]/unit-groups/page.tsx"
+    },
+    "/pricing": {
+      "file": "src/app/pricing/page.tsx"
+    },
+    "/resources": {
+      "file": "src/app/resources/page.tsx"
+    },
+    "/resources/[slug]": {
+      "file": "src/app/resources/[slug]/page.tsx"
+    },
+    "/resources/blog": {
+      "file": "src/app/resources/blog/page.tsx"
+    },
+    "/resources/blog/[slug]": {
+      "file": "src/app/resources/blog/[slug]/page.tsx"
+    },
+    "/schedule-tour": {
+      "file": "src/app/schedule-tour/page.tsx"
+    }
+  }
+}

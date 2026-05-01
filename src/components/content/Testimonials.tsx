@@ -64,7 +64,7 @@ export function Testimonials({
   if (variant === "single") {
     const t = testimonials[currentIndex];
     return (
-      <section className="bg-surface py-16 lg:py-24" id="testimonials">
+      <section data-nocms-component="testimonials" className="bg-surface py-16 lg:py-24" id="testimonials">
         <div className="mx-auto max-w-3xl px-4 text-center">
           <h2 className="font-heading text-3xl font-bold text-text mb-10">{heading}</h2>
           <Quote className="h-10 w-10 text-primary/20 mx-auto mb-6" aria-hidden="true" />
@@ -110,7 +110,7 @@ export function Testimonials({
 
   if (variant === "shelf") {
     return (
-      <section className="bg-surface py-16 lg:py-24 overflow-hidden" id="testimonials">
+      <section data-nocms-component="testimonials" className="bg-surface py-16 lg:py-24 overflow-hidden" id="testimonials">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-10">
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center">{heading}</h2>
         </div>
@@ -151,7 +151,7 @@ export function Testimonials({
 
   /* cards variant (default) */
   return (
-    <section className="bg-surface py-16 lg:py-24" id="testimonials">
+    <section data-nocms-component="testimonials" className="bg-surface py-16 lg:py-24" id="testimonials">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">{heading}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">

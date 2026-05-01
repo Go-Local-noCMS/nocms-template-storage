@@ -47,7 +47,7 @@ export function Navbar({
   );
 
   return (
-    <header
+    <header data-nocms-component="navbar"
       className={`sticky top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-primary shadow-lg shadow-primary/15"

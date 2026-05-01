@@ -55,7 +55,7 @@ export function ResourceCards({
   heading = "Helpful Resources for Families",
 }: ResourceCardsProps) {
   return (
-    <section className="bg-background py-16 lg:py-24">
+    <section data-nocms-component="resource-cards" className="bg-background py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">
           {heading}
@@ -64,7 +64,7 @@ export function ResourceCards({
           {(resources ?? []).map((resource) => {
             const Icon = typeIcons[resource.type ?? "article"] ?? FileText;
             return (
-              <a
+              <a data-nocms-component="resource-cards"
                 key={resource.slug}
                 href={resource.href ?? `/resources/${resource.slug}`}
                 className="group bg-surface rounded-xl overflow-hidden border border-text/5 hover:shadow-lg transition-all block"

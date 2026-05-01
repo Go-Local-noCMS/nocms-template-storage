@@ -43,7 +43,7 @@ const iconMap: Record<string, React.ElementType> = {
 
 export function CareTypeDetail({ careType }: CareTypeDetailProps) {
   return (
-    <article>
+    <article data-nocms-component="care-type-detail">
       {/* Hero */}
       <section className="relative min-h-[50vh] flex items-end overflow-hidden">
         <img
@@ -73,7 +73,7 @@ export function CareTypeDetail({ careType }: CareTypeDetailProps) {
           {careType.features.map((feature) => {
             const Icon = iconMap[feature.icon ?? "check"] ?? Check;
             return (
-              <div
+              <div data-nocms-component="care-type-detail"
                 key={feature.title}
                 className="bg-surface rounded-xl p-6 hover:shadow-md transition-shadow"
               >

@@ -29,7 +29,7 @@ export function CTABanner({
   phone,
 }: CTABannerProps) {
   return (
-    <section className={`py-16 lg:py-20 ${variantClasses[variant] ?? variantClasses.primary}`}>
+    <section data-nocms-component="cta-banner" className={`py-16 lg:py-20 ${variantClasses[variant] ?? variantClasses.primary}`}>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         <h2
           className="font-heading text-3xl sm:text-4xl font-bold mb-4"

@@ -13,7 +13,7 @@ export function CrisisBand({
   phone = skinConfig.phone,
 }: CrisisBandProps) {
   return (
-    <section className="bg-primary-dark py-8 lg:py-10 relative overflow-hidden">
+    <section data-nocms-component="crisis-band" className="bg-primary-dark py-8 lg:py-10 relative overflow-hidden">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           <div className="flex items-start gap-4">

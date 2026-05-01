@@ -4,6 +4,7 @@ interface SectionWrapperProps {
   className?: string;
   id?: string;
   children: React.ReactNode;
+  [key: `data-${string}`]: string | undefined;
 }
 
 const bgClasses: Record<string, string> = {
@@ -19,11 +20,14 @@ export function SectionWrapper({
   className = "",
   id,
   children,
+  ...rest
 }: SectionWrapperProps) {
   return (
     <section
       id={id}
       className={`relative py-16 lg:py-24 overflow-hidden ${bgClasses[bg] ?? bgClasses.background} ${className}`}
+      data-nocms-component="section-wrapper"
+      {...rest}
     >
       {pattern && (
         <div

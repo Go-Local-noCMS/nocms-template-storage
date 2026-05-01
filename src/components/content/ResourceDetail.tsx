@@ -25,7 +25,7 @@ interface ResourceDetailProps {
 
 export function ResourceDetail({ resource }: ResourceDetailProps) {
   return (
-    <article>
+    <article data-nocms-component="resource-detail">
       {/* Header */}
       <SectionWrapper bg="primary">
         <a href="/resources" className="inline-flex items-center gap-2 text-white/70 hover:text-white text-sm mb-6 transition-colors">
