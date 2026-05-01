@@ -48,7 +48,7 @@ export function TeamGrid({
   return (
     <section data-nocms-component="team-grid" className="bg-background py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">
+        <h2 data-role="heading" className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">
           {heading}
         </h2>
         <div className={`grid grid-cols-1 ${gridCols} gap-8`}>

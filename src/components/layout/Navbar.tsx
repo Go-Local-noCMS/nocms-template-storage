@@ -65,7 +65,7 @@ export function Navbar({
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex h-[72px] items-center justify-between">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-3 group">
+          <a href="/" data-role="logo" className="flex items-center gap-3 group">
             <div className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center">
               <span className="text-white font-heading text-lg font-bold">
                 {logo.charAt(0)}
@@ -143,6 +143,7 @@ export function Navbar({
             </a>
             <a
               href={ctaHref}
+              data-role="cta"
               className="bg-sand text-primary-dark font-semibold px-5 py-2.5 rounded-md text-sm shadow-md hover:bg-background hover:shadow-lg hover:-translate-y-0.5 transition-all focus-visible:ring-2 focus-visible:ring-sand focus-visible:ring-offset-2 focus-visible:ring-offset-primary"
             >
               {ctaText}

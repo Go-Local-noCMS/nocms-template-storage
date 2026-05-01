@@ -66,7 +66,7 @@ export function Testimonials({
     return (
       <section data-nocms-component="testimonials" className="bg-surface py-16 lg:py-24" id="testimonials">
         <div className="mx-auto max-w-3xl px-4 text-center">
-          <h2 className="font-heading text-3xl font-bold text-text mb-10">{heading}</h2>
+          <h2 data-role="heading" className="font-heading text-3xl font-bold text-text mb-10">{heading}</h2>
           <Quote className="h-10 w-10 text-primary/20 mx-auto mb-6" aria-hidden="true" />
           <blockquote>
             <p className="text-xl text-text leading-relaxed italic mb-6">
@@ -112,7 +112,7 @@ export function Testimonials({
     return (
       <section data-nocms-component="testimonials" className="bg-surface py-16 lg:py-24 overflow-hidden" id="testimonials">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 mb-10">
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center">{heading}</h2>
+          <h2 data-role="heading" className="font-heading text-3xl sm:text-4xl font-bold text-text text-center">{heading}</h2>
         </div>
         <div className="relative">
           <div
@@ -153,7 +153,7 @@ export function Testimonials({
   return (
     <section data-nocms-component="testimonials" className="bg-surface py-16 lg:py-24" id="testimonials">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">{heading}</h2>
+        <h2 data-role="heading" className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">{heading}</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
           {(testimonials ?? []).map((t, i) => (
             <div

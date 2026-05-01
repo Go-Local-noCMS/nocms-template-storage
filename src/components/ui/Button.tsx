@@ -6,6 +6,7 @@ interface ButtonProps {
   className?: string;
   type?: "button" | "submit" | "reset";
   onClick?: () => void;
+  "data-role"?: string;
 }
 
 const variantClasses: Record<string, string> = {
@@ -31,6 +32,7 @@ export function Button({
   className = "",
   type = "button",
   onClick,
+  "data-role": dataRole,
 }: ButtonProps) {
   const classes = `inline-flex items-center justify-center gap-2 font-semibold rounded-md transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 ${
     variantClasses[variant] ?? variantClasses.primary
@@ -38,14 +40,14 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} className={classes}>
+      <a href={href} data-role={dataRole} className={classes}>
         {children}
       </a>
     );
   }
 
   return (
-    <button data-nocms-component="button" type={type} className={classes} onClick={onClick}>
+    <button data-nocms-component="button" data-role={dataRole} type={type} className={classes} onClick={onClick}>
       {children}
     </button>
   );

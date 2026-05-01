@@ -287,6 +287,7 @@ export function ReservationForm({ facilityUuid, unitGroupUuid }: ReservationForm
 
       <button
         type="submit"
+        data-role="submit"
         disabled={submitting}
         className="rounded-lg bg-zinc-900 px-5 py-2.5 text-sm font-semibold text-white hover:bg-zinc-800 disabled:opacity-50 focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:outline-none"
       >

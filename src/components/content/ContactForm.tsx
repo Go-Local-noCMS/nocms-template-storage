@@ -66,7 +66,7 @@ export function ContactForm({
 
   return (
     <div data-nocms-component="contact-form">
-      {heading && <h2 className="font-heading text-3xl font-bold text-text mb-3">{heading}</h2>}
+      {heading && <h2 data-role="heading" className="font-heading text-3xl font-bold text-text mb-3">{heading}</h2>}
       {description && <p className="text-muted mb-8 max-w-lg">{description}</p>}
       <form onSubmit={handleSubmit} className="space-y-5">
         {(fields ?? []).map((field) => (
@@ -108,7 +108,7 @@ export function ContactForm({
             )}
           </div>
         ))}
-        <Button type="submit" variant="primary" size="lg" className="w-full sm:w-auto">
+        <Button type="submit" data-role="submit" variant="primary" size="lg" className="w-full sm:w-auto">
           <Send className="h-4 w-4" aria-hidden="true" />
           {submitLabel}
         </Button>

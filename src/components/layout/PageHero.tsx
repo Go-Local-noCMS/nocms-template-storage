@@ -53,20 +53,22 @@ export function PageHero({
       <section data-nocms-component="page-hero" className="bg-primary py-16 lg:py-24 text-center">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h1
+            data-role="heading"
             className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight whitespace-pre-line"
             style={{ textWrap: "balance" } as React.CSSProperties}
           >
             {title}
           </h1>
           {subtitle && (
-            <p className="mt-4 text-lg text-white/85 max-w-2xl mx-auto">{subtitle}</p>
+            <p data-role="subheading" className="mt-4 text-lg text-white/85 max-w-2xl mx-auto">{subtitle}</p>
           )}
           {ctas.length > 0 && (
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-8">
-              {ctas.map((cta) => (
+              {ctas.map((cta, idx) => (
                 <a
                   key={cta.href}
                   href={cta.href}
+                  data-role={idx === 0 ? "cta" : undefined}
                   className={`inline-flex items-center gap-2 font-semibold px-6 py-3 rounded-md text-base transition-all ${
                     cta.variant === "secondary"
                       ? "border-2 border-white/50 text-white hover:bg-white hover:text-primary"
@@ -90,6 +92,7 @@ export function PageHero({
       <img
         src={backgroundImage}
         alt=""
+        data-role="media"
         className="absolute inset-0 w-full h-full object-cover z-0"
         loading="eager"
         role="presentation"
@@ -115,6 +118,7 @@ export function PageHero({
       {/* Content */}
       <div className="relative z-[3] max-w-3xl px-6 sm:px-10 py-16">
         <h1
+          data-role="heading"
           className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold text-white leading-[1.1] mb-6 whitespace-pre-line"
           style={{ textWrap: "balance" } as React.CSSProperties}
         >
@@ -122,6 +126,7 @@ export function PageHero({
         </h1>
         {subtitle && (
           <p
+            data-role="subheading"
             className="text-lg sm:text-xl text-white/90 leading-relaxed mb-8 max-w-2xl mx-auto font-body"
             style={{ textWrap: "balance" } as React.CSSProperties}
           >
@@ -148,10 +153,11 @@ export function PageHero({
 
         {ctas.length > 0 && (
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            {ctas.map((cta) => (
+            {ctas.map((cta, idx) => (
               <a
                 key={cta.href}
                 href={cta.href}
+                data-role={idx === 0 ? "cta" : undefined}
                 className={`inline-flex items-center gap-2 font-semibold px-8 py-4 rounded-md text-lg transition-all ${
                   cta.variant === "secondary"
                     ? "border-2 border-white/50 text-white hover:bg-white hover:text-primary"

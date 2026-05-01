@@ -75,7 +75,7 @@ export function WhySection({
     return (
       <section data-nocms-component="why-section" className="bg-surface py-16 lg:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text mb-4">{heading}</h2>
+          <h2 data-role="heading" className="font-heading text-3xl sm:text-4xl font-bold text-text mb-4">{heading}</h2>
           {subtitle && <p className="text-muted mb-12">{subtitle}</p>}
 
           <div className="bg-background rounded-2xl p-10 shadow-sm border border-text/5 min-h-[240px] flex flex-col items-center justify-center">
@@ -116,7 +116,7 @@ export function WhySection({
     <section data-nocms-component="why-section" className="bg-surface py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text mb-4">{heading}</h2>
+          <h2 data-role="heading" className="font-heading text-3xl sm:text-4xl font-bold text-text mb-4">{heading}</h2>
           {subtitle && <p className="text-muted text-lg max-w-2xl mx-auto">{subtitle}</p>}
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

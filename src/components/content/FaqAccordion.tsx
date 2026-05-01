@@ -64,7 +64,7 @@ export function FaqAccordion({
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <HelpCircle className="h-8 w-8 text-primary mx-auto mb-4" aria-hidden="true" />
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text">{heading}</h2>
+          <h2 data-role="heading" className="font-heading text-3xl sm:text-4xl font-bold text-text">{heading}</h2>
         </div>
 
         {/* Category tabs */}

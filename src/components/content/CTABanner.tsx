@@ -32,6 +32,7 @@ export function CTABanner({
     <section data-nocms-component="cta-banner" className={`py-16 lg:py-20 ${variantClasses[variant] ?? variantClasses.primary}`}>
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         <h2
+          data-role="heading"
           className="font-heading text-3xl sm:text-4xl font-bold mb-4"
           style={{ textWrap: "balance" } as React.CSSProperties}
         >
@@ -43,6 +44,7 @@ export function CTABanner({
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
             href={primaryCta.href}
+            data-role="cta"
             className="inline-flex items-center gap-2 bg-white text-primary font-semibold px-8 py-4 rounded-md text-base shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all"
           >
             {primaryCta.label}
