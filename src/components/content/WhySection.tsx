@@ -73,7 +73,7 @@ export function WhySection({
     const Icon = iconMap[reason.icon ?? "heart"] ?? Heart;
 
     return (
-      <section className="bg-surface py-16 lg:py-24">
+      <section data-nocms-component="why-section" className="bg-surface py-16 lg:py-24">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text mb-4">{heading}</h2>
           {subtitle && <p className="text-muted mb-12">{subtitle}</p>}
@@ -113,7 +113,7 @@ export function WhySection({
 
   /* grid variant (default) */
   return (
-    <section className="bg-surface py-16 lg:py-24">
+    <section data-nocms-component="why-section" className="bg-surface py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text mb-4">{heading}</h2>
@@ -123,7 +123,7 @@ export function WhySection({
           {(reasons ?? []).map((reason) => {
             const Icon = iconMap[reason.icon ?? "heart"] ?? Heart;
             return (
-              <div
+              <div data-nocms-component="why-section"
                 key={reason.title}
                 className="bg-background rounded-xl p-8 border border-text/5 hover:shadow-md transition-shadow"
               >

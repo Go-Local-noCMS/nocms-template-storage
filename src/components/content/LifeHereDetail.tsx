@@ -25,7 +25,7 @@ interface LifeHereDetailProps {
 
 export function LifeHereDetail({ section }: LifeHereDetailProps) {
   return (
-    <article>
+    <article data-nocms-component="life-here-detail">
       {/* Hero */}
       <section className="relative min-h-[45vh] flex items-end overflow-hidden">
         <img

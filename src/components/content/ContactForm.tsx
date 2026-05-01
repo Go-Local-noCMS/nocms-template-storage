@@ -54,7 +54,7 @@ export function ContactForm({
 
   if (submitted) {
     return (
-      <div className="bg-surface rounded-xl p-12 text-center">
+      <div data-nocms-component="contact-form" className="bg-surface rounded-xl p-12 text-center">
         <CheckCircle className="h-16 w-16 text-primary mx-auto mb-6" aria-hidden="true" />
         <h3 className="font-heading text-2xl font-bold text-text mb-3">Thank You!</h3>
         <p className="text-muted max-w-md mx-auto">
@@ -65,7 +65,7 @@ export function ContactForm({
   }
 
   return (
-    <div>
+    <div data-nocms-component="contact-form">
       {heading && <h2 className="font-heading text-3xl font-bold text-text mb-3">{heading}</h2>}
       {description && <p className="text-muted mb-8 max-w-lg">{description}</p>}
       <form onSubmit={handleSubmit} className="space-y-5">

@@ -46,7 +46,7 @@ export function TeamGrid({
   const gridCols = columns === 3 ? "md:grid-cols-3" : "md:grid-cols-2 lg:grid-cols-4";
 
   return (
-    <section className="bg-background py-16 lg:py-24">
+    <section data-nocms-component="team-grid" className="bg-background py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">
           {heading}

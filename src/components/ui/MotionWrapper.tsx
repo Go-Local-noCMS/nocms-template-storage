@@ -10,6 +10,7 @@ interface MotionWrapperProps {
   once?: boolean;
   amount?: number;
   className?: string;
+  [key: `data-${string}`]: string | undefined;
 }
 
 const entranceVariants: Record<string, Variants> = {
@@ -21,10 +22,10 @@ const entranceVariants: Record<string, Variants> = {
   "blur-in": { hidden: { opacity: 0, filter: "blur(8px)" }, visible: { opacity: 1, filter: "blur(0px)" } },
 };
 
-export function MotionWrapper({ children, entrance = "fade-up", duration = 0.5, delay = 0, once = true, amount = 0.2, className }: MotionWrapperProps) {
-  if (entrance === "none") return <div className={className}>{children}</div>;
+export function MotionWrapper({ children, entrance = "fade-up", duration = 0.5, delay = 0, once = true, amount = 0.2, className, ...rest }: MotionWrapperProps) {
+  if (entrance === "none") return <div className={className} data-nocms-component="motion-wrapper" {...rest}>{children}</div>;
   return (
-    <motion.div variants={entranceVariants[entrance]} initial="hidden" whileInView="visible" viewport={{ once, amount }} transition={{ duration, delay, ease: [0.25, 0.1, 0.25, 1] }} className={className}>
+    <motion.div variants={entranceVariants[entrance]} initial="hidden" whileInView="visible" viewport={{ once, amount }} transition={{ duration, delay, ease: [0.25, 0.1, 0.25, 1] }} className={className} data-nocms-component="motion-wrapper" {...rest}>
       {children}
     </motion.div>
   );

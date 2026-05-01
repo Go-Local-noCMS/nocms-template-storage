@@ -45,7 +45,7 @@ export function Button({
   }
 
   return (
-    <button type={type} className={classes} onClick={onClick}>
+    <button data-nocms-component="button" type={type} className={classes} onClick={onClick}>
       {children}
     </button>
   );

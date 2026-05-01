@@ -26,7 +26,7 @@ export function PhotoGrid({
 }: PhotoGridProps) {
   if (layout === "masonry") {
     return (
-      <section className="bg-background py-16 lg:py-24">
+      <section data-nocms-component="photo-grid" className="bg-background py-16 lg:py-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           {heading && (
             <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">
@@ -62,7 +62,7 @@ export function PhotoGrid({
 
   /* grid layout (default) */
   return (
-    <section className="bg-background py-16 lg:py-24">
+    <section data-nocms-component="photo-grid" className="bg-background py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {heading && (
           <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">

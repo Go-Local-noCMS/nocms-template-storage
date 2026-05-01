@@ -45,7 +45,7 @@ export function CareCards({
   careTypes = defaultCareTypes,
 }: CareCardsProps) {
   return (
-    <SectionWrapper bg="surface" pattern>
+    <SectionWrapper data-nocms-component="care-cards" bg="surface" pattern>
       <h2
         className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-text text-center tracking-tight mb-12"
         style={{ textWrap: "balance" } as React.CSSProperties}

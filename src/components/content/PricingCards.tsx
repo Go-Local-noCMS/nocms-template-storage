@@ -80,7 +80,7 @@ export function PricingCards({
   subtitle = "No hidden fees, no surprises. Every plan includes our full suite of amenities and services.",
 }: PricingCardsProps) {
   return (
-    <section className="bg-background py-16 lg:py-24">
+    <section data-nocms-component="pricing-cards" className="bg-background py-16 lg:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-14">
           <h2 className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-text mb-4">

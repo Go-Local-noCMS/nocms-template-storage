@@ -37,7 +37,7 @@ export function UnitGroupCard({ group, reserveHref }: UnitGroupCardProps) {
     .map((a) => a.key);
 
   return (
-    <article className="rounded-xl border border-zinc-200 p-6 shadow-sm">
+    <article data-nocms-component="unit-group-card" className="rounded-xl border border-zinc-200 p-6 shadow-sm">
       {promo && (
         <span className="mb-3 inline-block rounded-full bg-amber-100 px-3 py-1 text-xs font-medium text-amber-900">
           {promo.promotionName}

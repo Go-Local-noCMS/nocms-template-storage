@@ -50,7 +50,7 @@ export function PageHero({
 
   if (variant === "simple") {
     return (
-      <section className="bg-primary py-16 lg:py-24 text-center">
+      <section data-nocms-component="page-hero" className="bg-primary py-16 lg:py-24 text-center">
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
           <h1
             className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight whitespace-pre-line"
@@ -85,7 +85,7 @@ export function PageHero({
   }
 
   return (
-    <section className="relative min-h-[75vh] flex items-center justify-center text-center overflow-hidden">
+    <section data-nocms-component="page-hero" className="relative min-h-[75vh] flex items-center justify-center text-center overflow-hidden">
       {/* Background image (always present as fallback) */}
       <img
         src={backgroundImage}

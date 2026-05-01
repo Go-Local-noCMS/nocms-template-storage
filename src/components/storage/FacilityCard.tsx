@@ -7,7 +7,7 @@ import type { FacilityIndexEntry } from "@/types/Facility";
  */
 export function FacilityCard({ facility }: { facility: FacilityIndexEntry }) {
   return (
-    <Link
+    <Link data-nocms-component="facility-card"
       href={`/locations/${facility.slug}`}
       className="group block rounded-xl border border-zinc-200 p-6 transition-colors hover:border-zinc-400 focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:outline-none"
     >

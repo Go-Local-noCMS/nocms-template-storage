@@ -60,7 +60,7 @@ export function FaqAccordion({
   const filtered = activeCategory ? faqs.filter((f) => f.category === activeCategory) : faqs;
 
   return (
-    <section className="bg-background py-16 lg:py-24">
+    <section data-nocms-component="faq-accordion" className="bg-background py-16 lg:py-24">
       <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <HelpCircle className="h-8 w-8 text-primary mx-auto mb-4" aria-hidden="true" />
@@ -101,7 +101,7 @@ export function FaqAccordion({
           {filtered.map((faq, i) => {
             const isOpen = openIndex === i;
             return (
-              <div
+              <div data-nocms-component="faq-accordion"
                 key={faq.question}
                 className="bg-surface rounded-lg border border-text/5 overflow-hidden"
               >

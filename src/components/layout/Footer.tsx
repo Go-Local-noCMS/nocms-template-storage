@@ -28,7 +28,7 @@ export function Footer({
   };
 
   return (
-    <footer className="bg-rich-brown text-white/90 relative overflow-hidden">
+    <footer data-nocms-component="footer" className="bg-rich-brown text-white/90 relative overflow-hidden">
       {/* Top accent line */}
       <div className="h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0" />
 

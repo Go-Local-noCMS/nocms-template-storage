@@ -13,7 +13,7 @@ const variantClasses: Record<string, string> = {
 
 export function Badge({ children, variant = "primary", className = "" }: BadgeProps) {
   return (
-    <span
+    <span data-nocms-component="badge"
       className={`inline-flex items-center gap-1 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider ${
         variantClasses[variant] ?? variantClasses.primary
       } ${className}`}

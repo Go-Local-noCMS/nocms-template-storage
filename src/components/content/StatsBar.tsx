@@ -41,7 +41,7 @@ export function StatsBar({ stats = defaultStats, className = "" }: StatsBarProps
   }, []);
 
   return (
-    <section
+    <section data-nocms-component="stats-bar"
       ref={containerRef}
       className={`bg-primary-dark py-12 lg:py-16 ${className}`}
     >
