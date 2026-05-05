@@ -121,7 +121,7 @@ export function ReservationForm({ facilityUuid, unitGroupUuid }: ReservationForm
   if (status.kind === "success") {
     return (
       <div data-nocms-component="reservation-form" role="status" aria-live="polite" className="rounded-xl border border-emerald-200 bg-emerald-50 p-6">
-        <h2 className="text-xl font-semibold text-emerald-900">Reservation confirmed</h2>
+        <h2 className="text-xl font-semibold text-emerald-900" data-role="heading">Reservation confirmed</h2>
         <p className="mt-2 text-sm text-emerald-800">
           We&apos;ve held your unit. We&apos;ve also emailed you a confirmation; bring it on move-in day.
         </p>

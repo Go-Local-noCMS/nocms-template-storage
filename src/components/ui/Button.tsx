@@ -40,7 +40,7 @@ export function Button({
 
   if (href) {
     return (
-      <a href={href} data-role={dataRole} className={classes}>
+      <a href={href} data-role={dataRole} className={classes} data-nocms-component="button">
         {children}
       </a>
     );

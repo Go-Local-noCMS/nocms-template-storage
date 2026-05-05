@@ -43,7 +43,7 @@ export function UnitGroupCard({ group, reserveHref }: UnitGroupCardProps) {
           {promo.promotionName}
         </span>
       )}
-      <h3 className="text-2xl font-semibold tracking-tight">
+      <h3 className="text-2xl font-semibold tracking-tight" data-role="heading">
         {group.unitGroupDepth} × {group.unitGroupWidth}
       </h3>
       <p className="mt-1 text-sm text-zinc-600">

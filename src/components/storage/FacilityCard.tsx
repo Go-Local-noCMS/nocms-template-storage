@@ -11,7 +11,7 @@ export function FacilityCard({ facility }: { facility: FacilityIndexEntry }) {
       href={`/locations/${facility.slug}`}
       className="group block rounded-xl border border-zinc-200 p-6 transition-colors hover:border-zinc-400 focus-visible:ring-2 focus-visible:ring-zinc-900 focus-visible:outline-none"
     >
-      <h3 className="text-lg font-semibold tracking-tight">{facility.name}</h3>
+      <h3 className="text-lg font-semibold tracking-tight" data-role="heading">{facility.name}</h3>
       <p className="mt-1 text-sm text-zinc-600">
         {facility.city}, {facility.state}
       </p>
