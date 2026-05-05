@@ -32,17 +32,17 @@ export function LifeHereDetail({ section }: LifeHereDetailProps) {
           src={section.heroImage}
           alt={`${section.title} at our community`}
           className="absolute inset-0 w-full h-full object-cover"
-          loading="eager"
+          loading="eager" data-role="media"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-text/80 via-text/40 to-transparent" />
         <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-12 pt-32">
           <Badge variant="primary" className="mb-4 bg-primary/20 text-white backdrop-blur-sm">
             {section.tag}
           </Badge>
-          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h1 className="font-heading text-4xl sm:text-5xl font-bold text-white mb-4" data-role="heading">
             {section.title}
           </h1>
-          <p className="text-lg text-white/90 max-w-2xl">{section.description}</p>
+          <p className="text-lg text-white/90 max-w-2xl" data-role="subheading">{section.description}</p>
         </div>
       </section>
 

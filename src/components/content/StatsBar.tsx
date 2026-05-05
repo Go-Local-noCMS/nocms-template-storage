@@ -55,11 +55,11 @@ export function StatsBar({ stats = defaultStats, className = "" }: StatsBarProps
               }`}
               style={{ transitionDelay: `${i * 150}ms` }}
             >
-              <p className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
+              <p className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2" data-role="heading">
                 {stat.value}
                 {stat.suffix && <span className="text-white/70">{stat.suffix}</span>}
               </p>
-              <p className="text-white/75 text-sm font-medium uppercase tracking-wider">
+              <p className="text-white/75 text-sm font-medium uppercase tracking-wider" data-role="subheading">
                 {stat.label}
               </p>
             </div>

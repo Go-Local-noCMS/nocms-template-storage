@@ -120,7 +120,7 @@ export function FaqAccordion({
                 </button>
                 {isOpen && (
                   <div className="px-6 pb-5">
-                    <p className="text-muted leading-relaxed">{faq.answer}</p>
+                    <p className="text-muted leading-relaxed" data-role="subheading">{faq.answer}</p>
                   </div>
                 )}
               </div>

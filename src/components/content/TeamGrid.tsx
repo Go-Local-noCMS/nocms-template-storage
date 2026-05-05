@@ -63,7 +63,7 @@ export function TeamGrid({
                     src={member.image}
                     alt={member.name}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
+                    loading="lazy" data-role="media"
                   />
                 ) : (
                   <div className="w-full h-full bg-surface flex items-center justify-center">
@@ -76,7 +76,7 @@ export function TeamGrid({
               <h3 className="font-heading text-lg font-bold text-text">{member.name}</h3>
               <p className="text-primary text-sm font-medium mb-2">{member.title}</p>
               {member.bio && (
-                <p className="text-muted text-sm leading-relaxed max-w-xs mx-auto">
+                <p className="text-muted text-sm leading-relaxed max-w-xs mx-auto" data-role="subheading">
                   {member.bio}
                 </p>
               )}

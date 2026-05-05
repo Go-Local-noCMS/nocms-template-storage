@@ -66,7 +66,7 @@ export function CareCards({
               src={care.image}
               alt={`${care.title} community`}
               className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              loading="lazy"
+              loading="lazy" data-role="media"
             />
 
             {/* Gradient overlay */}
@@ -80,7 +80,7 @@ export function CareCards({
               <h3 className="font-heading text-2xl font-bold text-white mb-2">
                 {care.title}
               </h3>
-              <p className="text-white/85 text-sm leading-relaxed mb-4">
+              <p className="text-white/85 text-sm leading-relaxed mb-4" data-role="subheading">
                 {care.description}
               </p>
               <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-white group-hover:gap-3 transition-all">

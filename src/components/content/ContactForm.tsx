@@ -57,7 +57,7 @@ export function ContactForm({
       <div data-nocms-component="contact-form" className="bg-surface rounded-xl p-12 text-center">
         <CheckCircle className="h-16 w-16 text-primary mx-auto mb-6" aria-hidden="true" />
         <h3 className="font-heading text-2xl font-bold text-text mb-3">Thank You!</h3>
-        <p className="text-muted max-w-md mx-auto">
+        <p className="text-muted max-w-md mx-auto" data-role="subheading">
           We have received your message and will be in touch within 24 hours. In the meantime, feel free to call us or schedule a tour.
         </p>
       </div>

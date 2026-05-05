@@ -75,7 +75,7 @@ export function ResourceCards({
                       src={resource.image}
                       alt={resource.title}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                      loading="lazy"
+                      loading="lazy" data-role="media"
                     />
                     <div className="absolute top-3 left-3">
                       <Badge variant="primary" className="bg-primary/90 text-white backdrop-blur-sm">
@@ -89,7 +89,7 @@ export function ResourceCards({
                   <h3 className="font-heading text-lg font-bold text-text mb-2 group-hover:text-primary transition-colors">
                     {resource.title}
                   </h3>
-                  <p className="text-muted text-sm leading-relaxed mb-4">
+                  <p className="text-muted text-sm leading-relaxed mb-4" data-role="subheading">
                     {resource.description}
                   </p>
                   <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all">

@@ -52,7 +52,7 @@ export function TourPanel({ trigger }: TourPanelProps) {
         aria-label="Schedule a tour"
       >
         <div className="flex items-center justify-between p-6 border-b border-text/10">
-          <h2 className="font-heading text-xl font-bold text-text">Schedule Your Tour</h2>
+          <h2 className="font-heading text-xl font-bold text-text" data-role="heading">Schedule Your Tour</h2>
           <button
             onClick={() => setIsOpen(false)}
             className="h-10 w-10 rounded-full hover:bg-surface flex items-center justify-center transition-colors"
@@ -66,8 +66,8 @@ export function TourPanel({ trigger }: TourPanelProps) {
           {submitted ? (
             <div className="text-center py-12">
               <Calendar className="h-16 w-16 text-primary mx-auto mb-6" aria-hidden="true" />
-              <h3 className="font-heading text-2xl font-bold text-text mb-3">Tour Requested!</h3>
-              <p className="text-muted">
+              <h3 className="font-heading text-2xl font-bold text-text mb-3" data-role="heading">Tour Requested!</h3>
+              <p className="text-muted" data-role="subheading">
                 We will be in touch within 24 hours to confirm your visit. We look forward to showing you around.
               </p>
             </div>

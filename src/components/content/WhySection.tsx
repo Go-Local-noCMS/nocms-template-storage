@@ -83,7 +83,7 @@ export function WhySection({
               <Icon className="h-8 w-8 text-primary" aria-hidden="true" />
             </div>
             <h3 className="font-heading text-2xl font-bold text-text mb-3">{reason.title}</h3>
-            <p className="text-muted max-w-lg leading-relaxed">{reason.description}</p>
+            <p className="text-muted max-w-lg leading-relaxed" data-role="subheading">{reason.description}</p>
           </div>
 
           <div className="flex items-center justify-center gap-4 mt-8">

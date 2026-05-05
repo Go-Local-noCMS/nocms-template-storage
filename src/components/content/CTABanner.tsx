@@ -39,7 +39,7 @@ export function CTABanner({
           {heading}
         </h2>
         {description && (
-          <p className="text-white/85 text-lg mb-8 max-w-2xl mx-auto">{description}</p>
+          <p className="text-white/85 text-lg mb-8 max-w-2xl mx-auto" data-role="subheading">{description}</p>
         )}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a

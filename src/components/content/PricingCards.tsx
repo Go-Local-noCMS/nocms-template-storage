@@ -86,7 +86,7 @@ export function PricingCards({
           <h2 data-role="heading" className="font-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-text mb-4">
             {heading}
           </h2>
-          {subtitle && <p className="text-muted text-lg max-w-2xl mx-auto">{subtitle}</p>}
+          {subtitle && <p className="text-muted text-lg max-w-2xl mx-auto" data-role="subheading">{subtitle}</p>}
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">

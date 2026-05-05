@@ -21,8 +21,8 @@ export function CrisisBand({
               <AlertCircle className="h-6 w-6 text-white" aria-hidden="true" />
             </div>
             <div>
-              <h2 className="font-heading text-xl font-bold text-white mb-1">{heading}</h2>
-              <p className="text-white/80 text-sm max-w-lg">{description}</p>
+              <h2 className="font-heading text-xl font-bold text-white mb-1" data-role="heading">{heading}</h2>
+              <p className="text-white/80 text-sm max-w-lg" data-role="subheading">{description}</p>
             </div>
           </div>
           <a
