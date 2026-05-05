@@ -4,6 +4,8 @@ import { resourcePages } from "@/data/resources-pages";
 import { blogPosts } from "@/data/blog-posts";
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
 const BASE_URL = process.env.SITE_URL ?? "https://example.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
