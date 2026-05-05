@@ -3,7 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "lint:direct-edit": "bun run scripts/lint-direct-edit-coverage.ts"
   },
   "dependencies": {
     "next": "^16.0.0",
@@ -14,10 +15,11 @@
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",
-    "tailwindcss": "^4.0.0",
-    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0",
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
-    "@types/node": "^22.0.0"
+    "tailwindcss": "^4.0.0",
+    "ts-morph": "^28.0.0",
+    "typescript": "^5.7.0"
   }
 }
