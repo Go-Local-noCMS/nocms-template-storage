@@ -1,68 +1,69 @@
+import type { Metadata } from "next";
 import { listFacilities } from "@/lib/facilities/loader";
-import { FacilityCard } from "@/components/facility/FacilityCard";
+import { sampleFacilityIndex } from "@/data/facilities";
+import { FacilityCards } from "@/components/facility/FacilityCards";
+import { CTABanner } from "@/components/content/CTABanner";
+import skinConfig from "@/skin.config";
 
-export const metadata = {
-  title: "Locations",
-  description: "Find a self-storage facility near you.",
+export const metadata: Metadata = {
+  title: `Locations | ${skinConfig.brandName}`,
+  description: `Find a ${skinConfig.brandName} self-storage location near you.`,
 };
 
 export default async function LocationsIndexPage() {
-  const facilities = await listFacilities();
-
-  if (facilities.length === 0) {
-    return (
-      <main className="mx-auto max-w-3xl px-6 py-16">
-        <h1 className="text-3xl font-semibold">Locations</h1>
-        <p className="mt-4 text-zinc-600">
-          No locations configured yet. Once your facility data is loaded, your locations will
-          appear here.
-        </p>
-      </main>
-    );
-  }
-
-  // Group by state when there are >6 facilities across ≥2 states (per facilities skill).
+  const live = await listFacilities();
+  const facilities = live.length > 0 ? live : sampleFacilityIndex;
   const states = new Set(facilities.map((f) => f.state));
   const groupByState = facilities.length > 6 && states.size >= 2;
 
   return (
-    <main className="mx-auto max-w-6xl px-6 py-16">
-      <h1 className="text-3xl font-semibold tracking-tight">Locations</h1>
-      <p className="mt-2 text-zinc-600">
-        {facilities.length} {facilities.length === 1 ? "facility" : "facilities"}.
-      </p>
-
-      {groupByState ? (
-        <div className="mt-10 space-y-12">
-          {Array.from(states)
-            .sort()
-            .map((state) => {
-              const inState = facilities.filter((f) => f.state === state);
-              return (
-                <section key={state} aria-labelledby={`state-${state}`}>
-                  <h2 id={`state-${state}`} className="text-xl font-semibold">
-                    {state}
-                  </h2>
-                  <ul className="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {inState.map((facility) => (
-                      <li key={facility.slug}>
-                        <FacilityCard facility={facility} />
-                      </li>
-                    ))}
-                  </ul>
-                </section>
-              );
-            })}
+    <>
+      <section
+        data-nocms-component="locations-hero"
+        className="bg-primary py-16 lg:py-20 text-center text-white"
+      >
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <h1
+            data-role="heading"
+            className="font-heading text-4xl sm:text-5xl font-bold leading-tight"
+          >
+            Our locations
+          </h1>
+          <p data-role="subheading" className="mt-4 text-lg text-white/85">
+            {facilities.length} {facilities.length === 1 ? "facility" : "facilities"} ready to store your stuff.
+          </p>
         </div>
-      ) : (
-        <ul className="mt-10 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {facilities.map((facility) => (
-            <li key={facility.slug}>
-              <FacilityCard facility={facility} />
-            </li>
-          ))}
-        </ul>
-      )}
-    </main>
+      </section>
+
+      <section className="py-12 lg:py-16 bg-background">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          {groupByState ? (
+            <div className="space-y-12">
+              {Array.from(states)
+                .sort()
+                .map((state) => {
+                  const inState = facilities.filter((f) => f.state === state);
+                  return (
+                    <FacilityCards
+                      key={state}
+                      heading={state}
+                      facilities={inState}
+                    />
+                  );
+                })}
+            </div>
+          ) : (
+            <FacilityCards facilities={facilities} />
+          )}
+        </div>
+      </section>
+
+      <CTABanner
+        heading="Don't see a location near you?"
+        subheading="Call us — we may have an opening at a nearby facility, or we can recommend partners."
+        primaryCta={{ label: "Contact us", href: "/contact" }}
+        phone={skinConfig.contactPhone}
+      />
+    </>
   );
 }
