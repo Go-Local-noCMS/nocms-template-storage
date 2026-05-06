@@ -1,5 +1,5 @@
 import { listFacilities } from "@/lib/facilities/loader";
-import { FacilityCard } from "@/components/storage/FacilityCard";
+import { FacilityCard } from "@/components/facility/FacilityCard";
 
 export const metadata = {
   title: "Locations",
