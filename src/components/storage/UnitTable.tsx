@@ -2,7 +2,7 @@ import * as React from "react";
 import type { UnitGroup } from "@/types/UnitGroup";
 
 /**
- * Local UnitTable — replaces the third-party `@glidevvr/unit-table` widget
+ * Local UnitTable — replaces the third-party glidevvr unit-table widget
  * with a static `<table>` rendered from a `UnitGroup[]` prop. Drops the
  * live rate-fetch / availability sync; this version is purely presentational
  * and accepts pre-fetched data from the caller.
