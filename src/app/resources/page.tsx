@@ -1,113 +1,86 @@
-import { PageHero } from "@/components/layout/PageHero";
-import { SectionWrapper } from "@/components/layout/SectionWrapper";
-import { CTABanner } from "@/components/content/CTABanner";
-import { ArrowRight, BookOpen } from "lucide-react";
-import skinConfig from "@/skin.config";
 import type { Metadata } from "next";
+import { ArrowRight, BookOpen, HelpCircle, Calculator } from "lucide-react";
+import { CTABanner } from "@/components/content/CTABanner";
+import skinConfig from "@/skin.config";
 
 export const metadata: Metadata = {
-  title: "Resources | Senior Living",
-  description: "Helpful resources, guides, and articles for families navigating senior living decisions.",
+  title: `Resources | ${skinConfig.brandName}`,
+  description: `Storage guides, articles, and tools from ${skinConfig.brandName}.`,
 };
+
+const resourceCards = [
+  {
+    title: "Blog",
+    description: "Tips, guides, and stories about packing, moving, and self-storage.",
+    href: "/blog",
+    icon: BookOpen,
+  },
+  {
+    title: "Size guide",
+    description: "Compare sizes side-by-side and pick the right unit for what you're storing.",
+    href: "/reserve-online",
+    icon: Calculator,
+  },
+  {
+    title: "Search",
+    description: "Find a specific location, article, or resource on the site.",
+    href: "/search",
+    icon: HelpCircle,
+  },
+];
 
 export default function ResourcesPage() {
   return (
     <>
-      <PageHero
-        variant="simple"
-        title="Resource Center"
-        subtitle="Guides, articles, and tools to help your family navigate the senior living journey with confidence."
-      />
-
-      {/* Featured Guide */}
-      <SectionWrapper bg="background">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-surface rounded-2xl overflow-hidden border border-text/5 shadow-sm">
-            <div className="grid grid-cols-1 md:grid-cols-2">
-              <div className="relative h-64 md:h-auto">
-                <img
-                  src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=800&q=80"
-                  alt="Senior living guide"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute top-4 left-4 bg-primary text-white text-xs font-semibold px-3 py-1 rounded-full">
-                  Featured
-                </div>
-              </div>
-              <div className="p-8 flex flex-col justify-center">
-                <span className="text-xs text-primary font-semibold uppercase tracking-wider mb-2">
-                  <BookOpen className="inline h-3.5 w-3.5 mr-1" aria-hidden="true" />
-                  Comprehensive Guide
-                </span>
-                <h2 className="font-heading text-2xl font-bold text-text mb-3">
-                  The Complete Guide to Senior Living
-                </h2>
-                <p className="text-muted leading-relaxed mb-6">
-                  Everything families need to know about choosing the right community, understanding care levels,
-                  navigating costs, and making the transition smooth.
-                </p>
-                <a
-                  href="/resources/faq"
-                  className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
-                >
-                  Read the Guide <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </SectionWrapper>
-
-      {/* Resource Pages */}
-      <SectionWrapper bg="surface">
-        <h2 className="font-heading text-3xl font-bold text-text text-center mb-10">
-          Explore Our Resources
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          <a
-            href="/resources/blog"
-            className="group bg-background rounded-xl p-8 border border-text/5 hover:shadow-md transition-shadow block"
+      <section
+        data-nocms-component="resources-hero"
+        className="bg-primary py-16 lg:py-20 text-center text-white"
+      >
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <h1
+            data-role="heading"
+            className="font-heading text-4xl sm:text-5xl font-bold leading-tight"
           >
-            <span className="text-xs text-primary font-semibold uppercase tracking-wider">Blog</span>
-            <h3 className="font-heading text-xl font-bold text-text mt-2 mb-3 group-hover:text-primary transition-colors">
-              Blog & Guides
-            </h3>
-            <p className="text-muted text-sm leading-relaxed mb-4">
-              Articles, tips, and expert advice on senior care, wellness, family support, and community living.
-            </p>
-            <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
-              Visit Blog <ArrowRight className="h-4 w-4" aria-hidden="true" />
-            </span>
-          </a>
+            Storage resources
+          </h1>
+          <p data-role="subheading" className="mt-4 text-lg text-white/85">
+            Guides, articles, and tools to help you get the most out of your unit.
+          </p>
         </div>
-      </SectionWrapper>
+      </section>
 
-      {/* Quick Links */}
-      <SectionWrapper bg="background">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-heading text-2xl font-bold text-text mb-8">Quick Links</h2>
-          <div className="flex flex-wrap items-center justify-center gap-4">
-            <a href="/pricing" className="inline-flex items-center gap-2 bg-surface border border-text/10 rounded-full px-6 py-3 text-sm font-medium text-text hover:border-primary hover:text-primary transition-colors">
-              Pricing Information
-            </a>
-            <a href="/schedule-tour" className="inline-flex items-center gap-2 bg-surface border border-text/10 rounded-full px-6 py-3 text-sm font-medium text-text hover:border-primary hover:text-primary transition-colors">
-              Schedule a Tour
-            </a>
-            <a href="/living-options" className="inline-flex items-center gap-2 bg-surface border border-text/10 rounded-full px-6 py-3 text-sm font-medium text-text hover:border-primary hover:text-primary transition-colors">
-              Living Options
-            </a>
-            <a href="/contact" className="inline-flex items-center gap-2 bg-surface border border-text/10 rounded-full px-6 py-3 text-sm font-medium text-text hover:border-primary hover:text-primary transition-colors">
-              Contact Us
-            </a>
+      <section className="py-16 lg:py-20 bg-background">
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {resourceCards.map((card) => (
+              <a
+                key={card.href}
+                href={card.href}
+                className="group block bg-surface rounded-xl p-8 border border-text/5 hover:border-primary hover:shadow-md transition-all"
+              >
+                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center mb-5">
+                  <card.icon className="h-6 w-6 text-primary" aria-hidden="true" />
+                </div>
+                <h2 className="font-heading text-xl font-bold text-text mb-2 group-hover:text-primary transition-colors">
+                  {card.title}
+                </h2>
+                <p className="text-muted text-sm leading-relaxed mb-4">
+                  {card.description}
+                </p>
+                <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
+                  Open
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </span>
+              </a>
+            ))}
           </div>
         </div>
-      </SectionWrapper>
+      </section>
 
       <CTABanner
-        heading="Have Questions? We Are Here to Help"
-        subheading="Our team is ready to assist you with any questions about senior living."
-        primaryCta={{ label: "Contact Us", href: "/contact" }}
+        heading="Have a question we didn't cover?"
+        subheading="Our office team is happy to help."
+        primaryCta={{ label: "Contact us", href: "/contact" }}
         phone={skinConfig.contactPhone}
       />
     </>

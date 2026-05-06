@@ -1,94 +1,126 @@
-import { Heart, Shield, Users, Star, Clock, Award } from "lucide-react";
-import { PageHero } from "@/components/layout/PageHero";
-import { SectionWrapper } from "@/components/layout/SectionWrapper";
-import { Divider } from "@/components/ui/Divider";
-import { StatsBar } from "@/components/content/StatsBar";
+import type { Metadata } from "next";
+import { ShieldCheck, Snowflake, Truck, Building2, Heart, Users } from "lucide-react";
 import { CTABanner } from "@/components/content/CTABanner";
 import skinConfig from "@/skin.config";
-import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "About Us | Senior Living",
-  description: "Learn about our mission, values, history, and the dedicated team behind our senior living community.",
+  title: `About | ${skinConfig.brandName}`,
+  description: `Learn about ${skinConfig.brandName} — locally owned, climate-controlled, and built for the long haul.`,
 };
 
 const values = [
-  { icon: Heart, title: "Compassion", description: "Every interaction is guided by empathy, kindness, and a genuine desire to improve lives." },
-  { icon: Shield, title: "Integrity", description: "We do what is right — for our residents, their families, and our team — even when no one is watching." },
-  { icon: Users, title: "Community", description: "We foster belonging and meaningful connections between residents, families, and staff." },
-  { icon: Star, title: "Excellence", description: "We pursue the highest standards in care, services, and programming every single day." },
-  { icon: Clock, title: "Dignity", description: "We honor each resident's individuality, preferences, history, and right to make choices." },
-  { icon: Award, title: "Innovation", description: "We embrace new approaches to senior care and continuously improve our programs." },
+  {
+    icon: ShieldCheck,
+    title: "Security first",
+    description:
+      "Gated access, 24/7 surveillance, and on-site management at every facility. Your stuff stays where you put it.",
+  },
+  {
+    icon: Snowflake,
+    title: "Climate control",
+    description:
+      "Stable temperature and humidity for the things that matter — antiques, electronics, photos, and instruments.",
+  },
+  {
+    icon: Truck,
+    title: "Easy move-in",
+    description:
+      "Drive-up units, free move-in trucks, and same-day rentals so the day of the move is the easy part.",
+  },
+  {
+    icon: Building2,
+    title: "Built for storage",
+    description:
+      "Purpose-built facilities with wide drive aisles, tall ceilings, and modern construction — not converted warehouses.",
+  },
+  {
+    icon: Heart,
+    title: "Locally owned",
+    description:
+      "Independent and community-rooted. Your money stays in town and your manager actually picks up the phone.",
+  },
+  {
+    icon: Users,
+    title: "Real people",
+    description:
+      "Live managers on every property — not call centers, not chatbots. The same face every visit.",
+  },
 ];
 
 export default function AboutPage() {
   return (
     <>
-      <PageHero
-        variant="simple"
-        title="About Our Community"
-        subtitle="For over 20 years, we have been creating a place where seniors do not just live — they thrive."
-      />
-
-      {/* Mission */}
-      <SectionWrapper bg="background">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text mb-6">Our Mission</h2>
-          <p className="text-lg text-muted leading-relaxed">
-            To create vibrant, compassionate communities where older adults enjoy a fulfilling lifestyle,
-            receive exceptional care, and are treated with the dignity and respect they deserve. We believe
-            every senior deserves a place that feels like home — and a life that feels rich, connected, and purposeful.
+      <section
+        data-nocms-component="about-hero"
+        className="bg-primary py-16 lg:py-20 text-center text-white"
+      >
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <h1
+            data-role="heading"
+            className="font-heading text-4xl sm:text-5xl font-bold leading-tight"
+          >
+            About {skinConfig.brandName}
+          </h1>
+          <p data-role="subheading" className="mt-4 text-lg text-white/85">
+            Self-storage built for the way you actually use it.
           </p>
         </div>
-      </SectionWrapper>
+      </section>
 
-      <Divider />
-
-      {/* Values Grid */}
-      <SectionWrapper bg="surface">
-        <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-12">Our Values</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {values.map((value) => (
-            <div key={value.title} className="bg-background rounded-xl p-8 border border-text/5 hover:shadow-md transition-shadow">
-              <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
-                <value.icon className="h-7 w-7 text-primary" aria-hidden="true" />
-              </div>
-              <h3 className="font-heading text-lg font-bold text-text mb-2">{value.title}</h3>
-              <p className="text-muted text-sm leading-relaxed">{value.description}</p>
-            </div>
-          ))}
-        </div>
-      </SectionWrapper>
-
-      {/* History */}
-      <SectionWrapper bg="background">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text text-center mb-10">Our Story</h2>
-          <div className="space-y-6 text-muted leading-relaxed">
+      <section className="py-16 lg:py-20 bg-background">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-heading text-3xl sm:text-4xl font-bold text-text mb-6">
+            Our story
+          </h2>
+          <div className="text-lg text-muted leading-relaxed space-y-5 text-left">
             <p>
-              Founded over two decades ago by a family who saw a need for better senior care in the community,
-              {" "}{skinConfig.brandName} has grown from a single residence to a network of communities serving
-              hundreds of families across the region.
+              {skinConfig.brandName} started with a simple idea: most storage facilities are
+              afterthoughts — converted warehouses, dim hallways, faceless leasing offices. We
+              wanted something different. Purpose-built buildings with wide drive aisles, real
+              climate control, and a manager who recognizes you.
             </p>
             <p>
-              Our founders believed that aging should not mean giving up the things that make life meaningful —
-              friendships, activities, independence, and joy. That belief remains at the heart of everything we do,
-              from the programs we design to the staff we hire to the communities we build.
+              Today we serve hundreds of customers across the metro. Personal storage during a
+              renovation, business inventory for a growing online shop, vehicle parking through the
+              winter — whatever you&apos;re storing, we&apos;ve probably stored something like it
+              before.
             </p>
             <p>
-              Today, we are proud to be recognized as a leader in senior living, with industry-leading satisfaction
-              scores, award-winning care programs, and a team of dedicated professionals who treat every resident
-              like family.
+              We&apos;re locally owned, month-to-month by default, and we never charge fees for
+              things that should be free. That&apos;s the whole pitch.
             </p>
           </div>
         </div>
-      </SectionWrapper>
+      </section>
 
-      <StatsBar />
+      <section className="py-16 lg:py-20 bg-surface">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-bold text-text text-center mb-12">
+            What sets us apart
+          </h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {values.map((value) => (
+              <div
+                key={value.title}
+                className="bg-background rounded-xl p-8 border border-text/5 hover:shadow-md transition-shadow"
+              >
+                <div className="h-14 w-14 rounded-xl bg-primary/10 flex items-center justify-center mb-5">
+                  <value.icon className="h-7 w-7 text-primary" aria-hidden="true" />
+                </div>
+                <h3 className="font-heading text-lg font-bold text-text mb-2">
+                  {value.title}
+                </h3>
+                <p className="text-muted text-sm leading-relaxed">{value.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       <CTABanner
-        heading="Come See for Yourself"
-        subheading="Schedule a tour and discover what makes our community special."
+        heading="Stop by and meet us"
+        subheading="No high-pressure tour. Just stop by during office hours and we'll show you around."
+        primaryCta={{ label: "Find a location", href: "/locations" }}
         phone={skinConfig.contactPhone}
       />
     </>

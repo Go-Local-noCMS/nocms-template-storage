@@ -1,113 +1,112 @@
-import { PageHero } from "@/components/layout/PageHero";
-import { SectionWrapper } from "@/components/layout/SectionWrapper";
-import { Divider } from "@/components/ui/Divider";
-import { CTABanner } from "@/components/content/CTABanner";
-import { Check, X, ArrowRight, DollarSign } from "lucide-react";
-import skinConfig from "@/skin.config";
 import type { Metadata } from "next";
+import { ArrowRight, Check } from "lucide-react";
+import { CTABanner } from "@/components/content/CTABanner";
+import { unitSizes } from "@/data/unit-sizes";
+import skinConfig from "@/skin.config";
 
 export const metadata: Metadata = {
-  title: "Pricing & Floor Plans | Senior Living",
-  description: "Transparent pricing for independent living, assisted living, and memory care. No hidden fees.",
+  title: `Pricing | ${skinConfig.brandName}`,
+  description: `Transparent pricing for self-storage at ${skinConfig.brandName}. Month-to-month, no hidden fees.`,
 };
-
-const comparisonFeatures = [
-  { feature: "Private apartment", independent: true, assisted: true, memory: true },
-  { feature: "Three meals daily", independent: true, assisted: true, memory: true },
-  { feature: "Housekeeping & laundry", independent: true, assisted: true, memory: true },
-  { feature: "Activities & events", independent: true, assisted: true, memory: true },
-  { feature: "Fitness center & pool", independent: true, assisted: true, memory: true },
-  { feature: "Transportation", independent: true, assisted: true, memory: true },
-  { feature: "Personalized care plan", independent: false, assisted: true, memory: true },
-  { feature: "Medication management", independent: false, assisted: true, memory: true },
-  { feature: "Daily living assistance", independent: false, assisted: true, memory: true },
-  { feature: "Health monitoring", independent: false, assisted: true, memory: true },
-  { feature: "Secured neighborhood", independent: false, assisted: false, memory: true },
-  { feature: "Dementia specialists", independent: false, assisted: false, memory: true },
-];
 
 export default function PricingPage() {
   return (
     <>
-      <PageHero
-        variant="simple"
-        title="Transparent, Honest Pricing"
-        subtitle="No hidden fees. No surprises. Just straightforward pricing so you can plan with confidence."
-      />
-
-      <Divider />
-
-      {/* Comparison Table */}
-      <SectionWrapper bg="surface">
-        <h2 className="font-heading text-3xl font-bold text-text text-center mb-10">
-          Compare Care Levels
-        </h2>
-        <div className="overflow-x-auto">
-          <table className="w-full max-w-4xl mx-auto text-sm">
-            <thead>
-              <tr className="border-b border-text/10">
-                <th className="text-left py-4 pr-4 font-semibold text-text">Feature</th>
-                <th className="text-center py-4 px-4 font-semibold text-text">Independent</th>
-                <th className="text-center py-4 px-4 font-semibold text-primary">Assisted</th>
-                <th className="text-center py-4 px-4 font-semibold text-text">Memory Care</th>
-              </tr>
-            </thead>
-            <tbody>
-              {comparisonFeatures.map((row) => (
-                <tr key={row.feature} className="border-b border-text/5">
-                  <td className="py-3 pr-4 text-text">{row.feature}</td>
-                  <td className="py-3 px-4 text-center">
-                    {row.independent ? (
-                      <Check className="h-5 w-5 text-primary mx-auto" aria-label="Included" />
-                    ) : (
-                      <X className="h-5 w-5 text-muted/30 mx-auto" aria-label="Not included" />
-                    )}
-                  </td>
-                  <td className="py-3 px-4 text-center">
-                    {row.assisted ? (
-                      <Check className="h-5 w-5 text-primary mx-auto" aria-label="Included" />
-                    ) : (
-                      <X className="h-5 w-5 text-muted/30 mx-auto" aria-label="Not included" />
-                    )}
-                  </td>
-                  <td className="py-3 px-4 text-center">
-                    {row.memory ? (
-                      <Check className="h-5 w-5 text-primary mx-auto" aria-label="Included" />
-                    ) : (
-                      <X className="h-5 w-5 text-muted/30 mx-auto" aria-label="Not included" />
-                    )}
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-      </SectionWrapper>
-
-      {/* Financial Help Callout */}
-      <SectionWrapper bg="background">
-        <div className="max-w-3xl mx-auto text-center">
-          <div className="h-16 w-16 rounded-2xl bg-primary/10 flex items-center justify-center mx-auto mb-6">
-            <DollarSign className="h-8 w-8 text-primary" aria-hidden="true" />
-          </div>
-          <h2 className="font-heading text-2xl font-bold text-text mb-4">Need Financial Assistance?</h2>
-          <p className="text-muted leading-relaxed mb-8">
-            We offer resources on Medicaid, VA benefits, long-term care insurance, and other assistance programs
-            to help make senior living affordable. Our financial counselors provide free consultations.
-          </p>
-          <a
-            href="/resources/financial-help"
-            className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
+      <section
+        data-nocms-component="pricing-hero"
+        className="bg-primary py-16 lg:py-20 text-center text-white"
+      >
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <h1
+            data-role="heading"
+            className="font-heading text-4xl sm:text-5xl font-bold leading-tight"
           >
-            Explore Financial Resources <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </a>
+            Honest, monthly pricing
+          </h1>
+          <p data-role="subheading" className="mt-4 text-lg text-white/85">
+            Month-to-month leases. No long-term commitment. No hidden fees.
+          </p>
         </div>
-      </SectionWrapper>
+      </section>
+
+      <section className="py-16 lg:py-20 bg-background">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <h2 className="font-heading text-3xl font-bold text-text text-center mb-4">
+            Sizes and starting prices
+          </h2>
+          <p className="text-muted text-center max-w-2xl mx-auto mb-12">
+            Starting prices vary by location and availability. Reserve online to lock in
+            today&apos;s rate at the location nearest you.
+          </p>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {unitSizes.map((size) => (
+              <article
+                key={size.id}
+                className="bg-surface rounded-xl border border-text/10 p-6 flex flex-col"
+              >
+                <div className="flex items-baseline justify-between gap-3 mb-2">
+                  <h3 className="font-heading text-2xl font-bold text-text">
+                    {size.name}
+                  </h3>
+                  <span className="text-xs font-semibold uppercase tracking-wide text-muted">
+                    {size.sqft} sq ft
+                  </span>
+                </div>
+                <p className="text-sm text-muted mb-4">{size.comparison}</p>
+                <p className="text-sm text-text leading-relaxed mb-6">
+                  {size.description}
+                </p>
+                {size.startingPrice && (
+                  <p className="mb-4">
+                    <span className="text-xs font-semibold uppercase tracking-wide text-muted">
+                      Starting at
+                    </span>
+                    <br />
+                    <span className="font-heading text-3xl font-bold text-primary">
+                      ${size.startingPrice}
+                    </span>
+                    <span className="text-sm text-muted"> / mo</span>
+                  </p>
+                )}
+                <ul className="text-sm text-text space-y-1 mb-6">
+                  {size.itemsThatFit.slice(0, 3).map((item) => (
+                    <li key={item} className="flex items-start gap-2">
+                      <Check className="h-4 w-4 text-primary mt-0.5 shrink-0" aria-hidden="true" />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a
+                  href="/reserve-online"
+                  className="mt-auto inline-flex items-center justify-center gap-2 bg-primary text-white font-semibold px-5 py-2.5 rounded-md hover:opacity-90 transition-opacity"
+                >
+                  Reserve a {size.name}
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </a>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="py-12 lg:py-16 bg-surface">
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="font-heading text-2xl font-bold text-text mb-4">
+            What&apos;s included
+          </h2>
+          <ul className="text-text leading-relaxed space-y-2">
+            <li>Month-to-month rentals — cancel any time with 10 days&apos; notice.</li>
+            <li>24/7 surveillance and gated access at every location.</li>
+            <li>Online bill pay, autopay, and account access.</li>
+            <li>No setup or admin fees beyond the first month and a small lock fee.</li>
+          </ul>
+        </div>
+      </section>
 
       <CTABanner
-        heading="Get a Personalized Quote"
-        subheading="Every family's situation is unique. Contact us for a customized pricing plan tailored to your needs."
-        primaryCta={{ label: "Request Quote", href: "/contact" }}
+        heading="Ready to reserve?"
+        subheading="Lock in today's rate online — no payment due now."
+        primaryCta={{ label: "Reserve online", href: "/reserve-online" }}
         phone={skinConfig.contactPhone}
       />
     </>
