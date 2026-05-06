@@ -1,11 +1,9 @@
-import { Heart, Shield, Users, Star, Clock, Award, ArrowRight } from "lucide-react";
+import { Heart, Shield, Users, Star, Clock, Award } from "lucide-react";
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { Divider } from "@/components/ui/Divider";
 import { StatsBar } from "@/components/content/StatsBar";
-import { TeamGrid } from "@/components/content/TeamGrid";
 import { CTABanner } from "@/components/content/CTABanner";
-import { teamMembers } from "@/data/team";
 import skinConfig from "@/skin.config";
 import type { Metadata } from "next";
 
@@ -87,28 +85,6 @@ export default function AboutPage() {
       </SectionWrapper>
 
       <StatsBar />
-
-      {/* Team Preview */}
-      <TeamGrid
-        members={teamMembers.slice(0, 4).map((m) => ({
-          name: m.name,
-          title: m.title,
-          bio: m.bio,
-          image: m.photo,
-        }))}
-        heading="Our Leadership"
-      />
-
-      <SectionWrapper bg="background">
-        <div className="text-center">
-          <a
-            href="/about/our-team"
-            className="inline-flex items-center gap-2 text-primary font-semibold hover:gap-3 transition-all"
-          >
-            Meet the Full Team <ArrowRight className="h-4 w-4" aria-hidden="true" />
-          </a>
-        </div>
-      </SectionWrapper>
 
       <CTABanner
         heading="Come See for Yourself"

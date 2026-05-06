@@ -1,7 +1,6 @@
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { ContactForm } from "@/components/content/ContactForm";
-import { CrisisBand } from "@/components/content/CrisisBand";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import skinConfig from "@/skin.config";
 import type { Metadata } from "next";
@@ -84,8 +83,6 @@ export default function ContactPage() {
           </div>
         </div>
       </SectionWrapper>
-
-      <CrisisBand />
     </>
   );
 }

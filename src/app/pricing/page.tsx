@@ -1,9 +1,7 @@
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
 import { Divider } from "@/components/ui/Divider";
-import { PricingCards } from "@/components/content/PricingCards";
 import { CTABanner } from "@/components/content/CTABanner";
-import { pricingPlans } from "@/data/pricing";
 import { Check, X, ArrowRight, DollarSign } from "lucide-react";
 import skinConfig from "@/skin.config";
 import type { Metadata } from "next";
@@ -35,21 +33,6 @@ export default function PricingPage() {
         variant="simple"
         title="Transparent, Honest Pricing"
         subtitle="No hidden fees. No surprises. Just straightforward pricing so you can plan with confidence."
-      />
-
-      <PricingCards
-        plans={pricingPlans.map((p) => ({
-          name: p.name,
-          price: p.startingPrice,
-          period: p.period,
-          description: `Starting at ${p.startingPrice}${p.period}`,
-          features: p.features,
-          featured: p.featured,
-          ctaText: p.ctaText,
-          ctaHref: p.ctaHref,
-        }))}
-        heading="Choose the Right Plan"
-        subtitle="All plans include our full suite of amenities, dining, and programming."
       />
 
       <Divider />

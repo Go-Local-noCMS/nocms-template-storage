@@ -1,9 +1,7 @@
 import { PageHero } from "@/components/layout/PageHero";
 import { SectionWrapper } from "@/components/layout/SectionWrapper";
-import { ResourceCards } from "@/components/content/ResourceCards";
 import { CTABanner } from "@/components/content/CTABanner";
-import { resourcePages } from "@/data/resources-pages";
-import { ArrowRight, BookOpen, FileText, Phone } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import skinConfig from "@/skin.config";
 import type { Metadata } from "next";
 
@@ -67,22 +65,6 @@ export default function ResourcesPage() {
           Explore Our Resources
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {resourcePages.map((page) => (
-            <a
-              key={page.slug}
-              href={`/resources/${page.slug}`}
-              className="group bg-background rounded-xl p-8 border border-text/5 hover:shadow-md transition-shadow block"
-            >
-              <span className="text-xs text-primary font-semibold uppercase tracking-wider">{page.tag}</span>
-              <h3 className="font-heading text-xl font-bold text-text mt-2 mb-3 group-hover:text-primary transition-colors">
-                {page.name}
-              </h3>
-              <p className="text-muted text-sm leading-relaxed mb-4">{page.description}</p>
-              <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-primary group-hover:gap-3 transition-all">
-                Read More <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </span>
-            </a>
-          ))}
           <a
             href="/resources/blog"
             className="group bg-background rounded-xl p-8 border border-text/5 hover:shadow-md transition-shadow block"
