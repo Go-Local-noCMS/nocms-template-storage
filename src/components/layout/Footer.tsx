@@ -12,6 +12,14 @@ interface FooterProps {
   };
 }
 
+/**
+ * Site-wide footer. Ported from `storage-theme-payload`'s Footer — a
+ * three-row footer: brand + contact strip, link columns, and bottom bar with
+ * copyright + social. All Payload deps stripped; brand / contact info reads
+ * from `skinConfig`. Tagged for the editor with
+ * `data-nocms-component="footer"` on the root and `data-role="brand-name"`
+ * on the brand text leaf.
+ */
 export function Footer({
   brandName = skinConfig.brandName,
   columns = footerColumns,
@@ -30,11 +38,9 @@ export function Footer({
 
   return (
     <footer data-nocms-component="footer" className="bg-rich-brown text-white/90 relative overflow-hidden">
-      {/* Top accent line */}
       <div className="h-1 bg-gradient-to-r from-primary/0 via-primary to-primary/0" />
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-16 lg:py-20">
-        {/* Top row: logo & contact */}
         <div className="flex flex-col lg:flex-row items-start justify-between gap-8 pb-10 mb-10 border-b border-white/10">
           <div className="max-w-md">
             <div className="flex items-center gap-3 mb-3">
@@ -43,12 +49,15 @@ export function Footer({
                   {brandName.charAt(0)}
                 </span>
               </div>
-              <span className="font-heading text-xl font-bold text-white tracking-tight">
+              <span
+                data-role="brand-name"
+                className="font-heading text-xl font-bold text-white tracking-tight"
+              >
                 {brandName}
               </span>
             </div>
-            <p className="text-white/65 text-sm leading-relaxed" data-role="subheading">
-              {skinConfig.tagline}. We are here to support you and your family through every step of the senior living journey.
+            <p className="text-white/65 text-sm leading-relaxed" data-role="tagline">
+              {skinConfig.tagline}
             </p>
           </div>
           <div className="text-sm text-white/65 space-y-2 lg:text-right">
@@ -58,26 +67,35 @@ export function Footer({
                 {address}
               </div>
             )}
-            <div className="flex items-center gap-2 lg:justify-end">
-              <Phone className="h-4 w-4 text-primary shrink-0" aria-hidden="true" />
-              <a href={`tel:${phone.replace(/[^\d+]/g, "")}`} className="hover:text-white transition-colors">
-                {phone}
-              </a>
-              <span className="mx-1">&middot;</span>
-              <Mail className="h-4 w-4 text-primary shrink-0" aria-hidden="true" />
-              <a href={`mailto:${email}`} className="hover:text-white transition-colors">
-                {email}
-              </a>
-            </div>
-            <p className="text-white/50 text-xs">Mon&ndash;Fri: 9am&ndash;5pm &middot; Sat&ndash;Sun: 10am&ndash;4pm</p>
+            {(phone || email) && (
+              <div className="flex items-center gap-2 lg:justify-end">
+                {phone && (
+                  <>
+                    <Phone className="h-4 w-4 text-primary shrink-0" aria-hidden="true" />
+                    <a href={`tel:${phone.replace(/[^\d+]/g, "")}`} className="hover:text-white transition-colors">
+                      {phone}
+                    </a>
+                  </>
+                )}
+                {phone && email && <span className="mx-1">&middot;</span>}
+                {email && (
+                  <>
+                    <Mail className="h-4 w-4 text-primary shrink-0" aria-hidden="true" />
+                    <a href={`mailto:${email}`} className="hover:text-white transition-colors">
+                      {email}
+                    </a>
+                  </>
+                )}
+              </div>
+            )}
+            <p className="text-white/50 text-xs">Mon&ndash;Fri: 9am&ndash;6pm &middot; Sat: 9am&ndash;5pm &middot; Sun: 10am&ndash;4pm</p>
           </div>
         </div>
 
-        {/* Link columns */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 mb-12">
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="font-heading text-sm font-semibold text-white tracking-wide uppercase mb-4" data-role="heading">
+              <h3 className="font-heading text-sm font-semibold text-white tracking-wide uppercase mb-4">
                 {col.title}
               </h3>
               <ul className="space-y-2.5">
@@ -100,7 +118,6 @@ export function Footer({
           ))}
         </div>
 
-        {/* Bottom bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p data-role="copyright" className="text-xs text-white/50">
             &copy; {new Date().getFullYear()} {brandName}. All rights reserved.
