@@ -1,90 +1,131 @@
-import { PageHero } from "@/components/layout/PageHero";
-import { SectionWrapper } from "@/components/layout/SectionWrapper";
-import { ContactForm } from "@/components/content/ContactForm";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import skinConfig from "@/skin.config";
 import type { Metadata } from "next";
+import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { ContactForm } from "@/components/content/ContactForm";
+import skinConfig from "@/skin.config";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Senior Living",
-  description: "Get in touch with our senior living community. We are here to answer questions and help you find the right care solution.",
+  title: `Contact | ${skinConfig.brandName}`,
+  description: `Get in touch with ${skinConfig.brandName}. Reserve a unit, ask about pricing, or schedule a visit.`,
 };
 
 export default function ContactPage() {
   return (
     <>
-      <PageHero
-        variant="simple"
-        title="Contact Us"
-        subtitle="We are here to help. Reach out with questions, schedule a visit, or request more information."
-      />
+      <section
+        data-nocms-component="contact-hero"
+        className="bg-primary py-16 lg:py-20 text-center text-white"
+      >
+        <div className="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
+          <h1
+            data-role="heading"
+            className="font-heading text-4xl sm:text-5xl font-bold leading-tight"
+          >
+            Contact us
+          </h1>
+          <p data-role="subheading" className="mt-4 text-lg text-white/85">
+            Reserve a unit, ask about pricing, or check on a current rental — we&apos;re here to help.
+          </p>
+        </div>
+      </section>
 
-      <SectionWrapper bg="background">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
-          {/* Contact Info */}
-          <div>
-            <h2 className="font-heading text-2xl font-bold text-text mb-8">Get in Touch</h2>
-            <div className="space-y-6">
-              {skinConfig.contactPhone && (
+      <section className="py-16 lg:py-20 bg-background">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
+            <div>
+              <h2 className="font-heading text-2xl font-bold text-text mb-8">
+                Get in touch
+              </h2>
+              <div className="space-y-6">
+                {skinConfig.contactPhone && (
+                  <div className="flex items-start gap-4">
+                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-text">Phone</h3>
+                      <a
+                        href={`tel:${skinConfig.contactPhone.replace(/[^\d+]/g, "")}`}
+                        className="text-primary hover:underline"
+                      >
+                        {skinConfig.contactPhone}
+                      </a>
+                    </div>
+                  </div>
+                )}
+                {skinConfig.contactEmail && (
+                  <div className="flex items-start gap-4">
+                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-text">Email</h3>
+                      <a
+                        href={`mailto:${skinConfig.contactEmail}`}
+                        className="text-primary hover:underline"
+                      >
+                        {skinConfig.contactEmail}
+                      </a>
+                    </div>
+                  </div>
+                )}
+                {skinConfig.primaryAddress && (
+                  <div className="flex items-start gap-4">
+                    <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
+                      <MapPin className="h-5 w-5 text-primary" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <h3 className="font-semibold text-text">Office</h3>
+                      <p className="text-muted">
+                        {skinConfig.primaryAddress.line1}, {skinConfig.primaryAddress.city},{" "}
+                        {skinConfig.primaryAddress.state} {skinConfig.primaryAddress.zip}
+                      </p>
+                    </div>
+                  </div>
+                )}
                 <div className="flex items-start gap-4">
                   <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
+                    <Clock className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-text">Phone</h3>
-                    <a href={`tel:${skinConfig.contactPhone.replace(/[^\d+]/g, "")}`} className="text-primary hover:underline">
-                      {skinConfig.contactPhone}
-                    </a>
-                  </div>
-                </div>
-              )}
-              {skinConfig.contactEmail && (
-                <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-text">Email</h3>
-                    <a href={`mailto:${skinConfig.contactEmail}`} className="text-primary hover:underline">
-                      {skinConfig.contactEmail}
-                    </a>
-                  </div>
-                </div>
-              )}
-              {skinConfig.primaryAddress && (
-                <div className="flex items-start gap-4">
-                  <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <MapPin className="h-5 w-5 text-primary" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-text">Address</h3>
-                    <p className="text-muted">
-                      {skinConfig.primaryAddress.line1}, {skinConfig.primaryAddress.city}, {skinConfig.primaryAddress.state} {skinConfig.primaryAddress.zip}
+                    <h3 className="font-semibold text-text">Office hours</h3>
+                    <p className="text-muted">Mon–Fri: 9:00 AM – 6:00 PM</p>
+                    <p className="text-muted">Saturday: 9:00 AM – 5:00 PM</p>
+                    <p className="text-muted">Sunday: 10:00 AM – 4:00 PM</p>
+                    <p className="text-muted text-sm mt-1">
+                      Gate access available outside office hours at most facilities.
                     </p>
                   </div>
                 </div>
-              )}
-              <div className="flex items-start gap-4">
-                <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                  <Clock className="h-5 w-5 text-primary" aria-hidden="true" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-text">Office Hours</h3>
-                  <p className="text-muted">Monday – Friday: 8:00 AM – 6:00 PM</p>
-                  <p className="text-muted">Saturday – Sunday: 9:00 AM – 4:00 PM</p>
-                  <p className="text-muted text-sm mt-1">Tours available 7 days a week by appointment</p>
-                </div>
               </div>
             </div>
-          </div>
 
-          {/* Contact Form */}
-          <div>
-            <h2 className="font-heading text-2xl font-bold text-text mb-8">Send Us a Message</h2>
-            <ContactForm />
+            <div>
+              <ContactForm
+                heading="Send us a message"
+                description="Tell us about your storage needs and we'll respond within one business day."
+                fields={[
+                  { name: "name", label: "Full name", type: "text", required: true, placeholder: "Your full name" },
+                  { name: "email", label: "Email", type: "email", required: true, placeholder: "you@example.com" },
+                  { name: "phone", label: "Phone", type: "tel", placeholder: "(555) 000-0000" },
+                  {
+                    name: "interest",
+                    label: "What can we help with?",
+                    type: "select",
+                    options: [
+                      "Reserving a new unit",
+                      "Existing reservation question",
+                      "Billing or payment question",
+                      "Pricing or sizing help",
+                      "Other",
+                    ],
+                  },
+                  { name: "message", label: "Message", type: "textarea", placeholder: "How can we help?" },
+                ]}
+              />
+            </div>
           </div>
         </div>
-      </SectionWrapper>
+      </section>
     </>
   );
 }
