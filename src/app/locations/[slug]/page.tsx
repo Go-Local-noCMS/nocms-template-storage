@@ -8,6 +8,7 @@ type Props = { params: Promise<Params> };
 
 export async function generateStaticParams(): Promise<Params[]> {
   const facilities = await listFacilities();
+  if (facilities.length === 0) return [{ slug: "_placeholder" }];
   return facilities.map((f) => ({ slug: f.slug }));
 }
 
@@ -35,6 +36,17 @@ const DAY_LABELS: Record<string, string> = {
 
 export default async function FacilityDetailPage({ params }: Props) {
   const { slug } = await params;
+  if (slug === "_placeholder") {
+    return (
+      <main className="mx-auto max-w-3xl px-6 py-16">
+        <h1 className="text-3xl font-semibold tracking-tight">Locations</h1>
+        <p className="mt-4 text-zinc-600">
+          No locations are configured yet. Once your facility data is loaded, location pages
+          will appear here.
+        </p>
+      </main>
+    );
+  }
   const facility = await getFacility(slug);
   if (!facility) notFound();
 

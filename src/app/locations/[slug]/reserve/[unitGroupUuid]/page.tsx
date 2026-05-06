@@ -7,17 +7,22 @@ type Params = { slug: string; unitGroupUuid: string };
 type Props = { params: Promise<Params> };
 
 /**
- * Reserve page is per-facility-per-unit-group. We pre-render the facility
- * dimension at build time (we know the facilities); the unitGroupUuid dimension
- * is rendered on-demand because units come and go and pre-rendering every
- * combination is wasteful.
+ * Reserve page is per-facility-per-unit-group. With `output: "export"` static
+ * export we must pre-render every combination at build time. Until real unit
+ * inventory is loaded for a facility, we emit a placeholder route so the build
+ * succeeds. Production scaffolds either drop `output: "export"` or back-fill
+ * unit-group params from FMS data.
  */
-export async function generateStaticParams(): Promise<Pick<Params, "slug">[]> {
+export async function generateStaticParams(): Promise<Params[]> {
   const facilities = await listFacilities();
-  return facilities.map((f) => ({ slug: f.slug }));
+  if (facilities.length === 0) {
+    return [{ slug: "_placeholder", unitGroupUuid: "_placeholder" }];
+  }
+  return facilities.map((f) => ({
+    slug: f.slug,
+    unitGroupUuid: "_placeholder",
+  }));
 }
-
-export const dynamicParams = true;
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
@@ -32,6 +37,16 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ReservePage({ params }: Props) {
   const { slug, unitGroupUuid } = await params;
+  if (slug === "_placeholder" || unitGroupUuid === "_placeholder") {
+    return (
+      <main className="mx-auto max-w-2xl px-6 py-16">
+        <h1 className="text-3xl font-semibold tracking-tight">Reservation</h1>
+        <p className="mt-4 text-zinc-600">
+          Pick a unit on a location page to start a reservation.
+        </p>
+      </main>
+    );
+  }
   const facility = await getFacility(slug);
   if (!facility) notFound();
 
