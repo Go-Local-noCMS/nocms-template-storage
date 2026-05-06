@@ -108,7 +108,7 @@ export default function PricingPage() {
         heading="Get a Personalized Quote"
         description="Every family's situation is unique. Contact us for a customized pricing plan tailored to your needs."
         primaryCta={{ label: "Request Quote", href: "/contact" }}
-        phone={skinConfig.phone}
+        phone={skinConfig.contactPhone}
       />
     </>
   );

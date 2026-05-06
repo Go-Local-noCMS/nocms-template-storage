@@ -25,40 +25,42 @@ export default function ContactPage() {
           <div>
             <h2 className="font-heading text-2xl font-bold text-text mb-8">Get in Touch</h2>
             <div className="space-y-6">
-              {skinConfig.phone && (
+              {skinConfig.contactPhone && (
                 <div className="flex items-start gap-4">
                   <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                     <Phone className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-text">Phone</h3>
-                    <a href={`tel:${skinConfig.phone.replace(/[^\d+]/g, "")}`} className="text-primary hover:underline">
-                      {skinConfig.phone}
+                    <a href={`tel:${skinConfig.contactPhone.replace(/[^\d+]/g, "")}`} className="text-primary hover:underline">
+                      {skinConfig.contactPhone}
                     </a>
                   </div>
                 </div>
               )}
-              {skinConfig.email && (
+              {skinConfig.contactEmail && (
                 <div className="flex items-start gap-4">
                   <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                     <Mail className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-text">Email</h3>
-                    <a href={`mailto:${skinConfig.email}`} className="text-primary hover:underline">
-                      {skinConfig.email}
+                    <a href={`mailto:${skinConfig.contactEmail}`} className="text-primary hover:underline">
+                      {skinConfig.contactEmail}
                     </a>
                   </div>
                 </div>
               )}
-              {skinConfig.address && (
+              {skinConfig.primaryAddress && (
                 <div className="flex items-start gap-4">
                   <div className="h-12 w-12 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
                     <MapPin className="h-5 w-5 text-primary" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-text">Address</h3>
-                    <p className="text-muted">{skinConfig.address}</p>
+                    <p className="text-muted">
+                      {skinConfig.primaryAddress.line1}, {skinConfig.primaryAddress.city}, {skinConfig.primaryAddress.state} {skinConfig.primaryAddress.zip}
+                    </p>
                   </div>
                 </div>
               )}

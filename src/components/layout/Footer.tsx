@@ -17,9 +17,10 @@ export function Footer({
   columns = footerColumns,
   contactInfo,
 }: FooterProps) {
-  const phone = contactInfo?.phone ?? skinConfig.phone;
-  const email = contactInfo?.email ?? skinConfig.email ?? "info@seniorliving.com";
-  const address = contactInfo?.address ?? skinConfig.address ?? "";
+  const phone = contactInfo?.phone ?? skinConfig.contactPhone ?? "";
+  const email = contactInfo?.email ?? skinConfig.contactEmail ?? "";
+  const addr = skinConfig.primaryAddress;
+  const address = contactInfo?.address ?? (addr ? `${addr.line1}, ${addr.city}, ${addr.state} ${addr.zip}` : "");
 
   const iconMap: Record<string, React.ElementType> = {
     facebook: Facebook,

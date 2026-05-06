@@ -16,7 +16,7 @@ interface NavbarProps {
 export function Navbar({
   logo = skinConfig.brandName,
   links = navigationLinks,
-  phone = skinConfig.phone,
+  phone = skinConfig.contactPhone ?? "",
   ctaText = "Schedule a Tour",
   ctaHref = "/schedule-tour",
 }: NavbarProps) {

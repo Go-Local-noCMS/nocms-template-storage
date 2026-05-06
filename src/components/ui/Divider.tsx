@@ -1,12 +1,10 @@
-import skinConfig from "@/skin.config";
-
 interface DividerProps {
   motif?: "leaf" | "golden-dot" | "line";
   className?: string;
 }
 
 export function Divider({ motif, className = "" }: DividerProps) {
-  const resolvedMotif = motif ?? skinConfig.dividerMotif;
+  const resolvedMotif = motif ?? "line";
 
   if (resolvedMotif === "leaf") {
     return (
