@@ -4,3 +4,5 @@ out
 .env
 .env.local
 *.tsbuildinfo
+bun.lock
+next-env.d.ts
