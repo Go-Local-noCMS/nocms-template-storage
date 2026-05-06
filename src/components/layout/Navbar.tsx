@@ -6,19 +6,29 @@ import { navigationLinks, type NavLink } from "@/data/site-config";
 import skinConfig from "@/skin.config";
 
 interface NavbarProps {
-  logo?: string;
+  brandName?: string;
   links?: NavLink[];
   phone?: string;
   ctaText?: string;
   ctaHref?: string;
 }
 
+/**
+ * Site-wide navigation. Ported from `storage-theme-payload`'s Header — a
+ * sticky bar with brand on the left, primary nav in the center, phone +
+ * primary CTA on the right, and a mobile hamburger drawer below 1024px.
+ *
+ * Editor contract:
+ *  - root tagged `data-nocms-component="navbar"`
+ *  - brand text leaf tagged `data-role="brand-name"`
+ *  - primary CTA tagged `data-role="cta"`
+ */
 export function Navbar({
-  logo = skinConfig.brandName,
+  brandName = skinConfig.brandName,
   links = navigationLinks,
   phone = skinConfig.contactPhone ?? "",
-  ctaText = "Schedule a Tour",
-  ctaHref = "/schedule-tour",
+  ctaText = "Reserve a Unit",
+  ctaHref = "/reserve-online",
 }: NavbarProps) {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
@@ -34,27 +44,13 @@ export function Navbar({
     setOpenDropdown((prev) => (prev === label ? null : label));
   }, []);
 
-  const handleDropdownKeyDown = useCallback(
-    (e: React.KeyboardEvent, label: string) => {
-      if (e.key === "Enter" || e.key === " ") {
-        e.preventDefault();
-        toggleDropdown(label);
-      } else if (e.key === "Escape") {
-        setOpenDropdown(null);
-      }
-    },
-    [toggleDropdown]
-  );
-
   return (
-    <header data-nocms-component="navbar"
+    <header
+      data-nocms-component="navbar"
       className={`sticky top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-primary shadow-lg shadow-primary/15"
-          : "bg-primary"
+        scrolled ? "bg-primary shadow-lg shadow-primary/15" : "bg-primary"
       }`}
     >
-      {/* Skip link */}
       <a
         href="#main-content"
         className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-accent focus:text-white focus:px-4 focus:py-2 focus:rounded-md focus:font-semibold"
@@ -64,19 +60,20 @@ export function Navbar({
 
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8" aria-label="Main navigation">
         <div className="flex h-[72px] items-center justify-between">
-          {/* Logo */}
-          <a href="/" data-role="logo" className="flex items-center gap-3 group">
+          <a href="/" className="flex items-center gap-3 group">
             <div className="h-9 w-9 rounded-lg bg-white/10 flex items-center justify-center">
               <span className="text-white font-heading text-lg font-bold">
-                {logo.charAt(0)}
+                {brandName.charAt(0)}
               </span>
             </div>
-            <span className="font-heading text-xl font-bold text-white tracking-tight group-hover:text-white/80 transition-colors">
-              {logo}
+            <span
+              data-role="brand-name"
+              className="font-heading text-xl font-bold text-white tracking-tight group-hover:text-white/80 transition-colors"
+            >
+              {brandName}
             </span>
           </a>
 
-          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center gap-1">
             {(links ?? []).map((link) =>
               link.children && link.children.length > 0 ? (
@@ -91,7 +88,6 @@ export function Navbar({
                     aria-expanded={openDropdown === link.label}
                     aria-haspopup="true"
                     onClick={() => toggleDropdown(link.label)}
-                    onKeyDown={(e) => handleDropdownKeyDown(e, link.label)}
                   >
                     {link.label}
                     <ChevronDown
@@ -132,15 +128,16 @@ export function Navbar({
             )}
           </div>
 
-          {/* Right side */}
           <div className="hidden lg:flex items-center gap-5">
-            <a
-              href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-              className="flex items-center gap-2 text-sm text-white/80 hover:text-white font-semibold transition-colors"
-            >
-              <Phone className="h-4 w-4" aria-hidden="true" />
-              <span>{phone}</span>
-            </a>
+            {phone && (
+              <a
+                href={`tel:${phone.replace(/[^\d+]/g, "")}`}
+                className="flex items-center gap-2 text-sm text-white/80 hover:text-white font-semibold transition-colors"
+              >
+                <Phone className="h-4 w-4" aria-hidden="true" />
+                <span>{phone}</span>
+              </a>
+            )}
             <a
               href={ctaHref}
               data-role="cta"
@@ -150,7 +147,6 @@ export function Navbar({
             </a>
           </div>
 
-          {/* Mobile hamburger */}
           <button
             className="lg:hidden p-2 rounded-md hover:bg-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-white"
             onClick={() => setMobileOpen(!mobileOpen)}
@@ -165,7 +161,6 @@ export function Navbar({
           </button>
         </div>
 
-        {/* Mobile menu */}
         {mobileOpen && (
           <div className="lg:hidden border-t border-white/10 py-4 space-y-1">
             {(links ?? []).map((link) => (
@@ -191,13 +186,15 @@ export function Navbar({
               </div>
             ))}
             <div className="pt-4 px-4 space-y-3 border-t border-white/10 mt-4">
-              <a
-                href={`tel:${phone.replace(/[^\d+]/g, "")}`}
-                className="flex items-center gap-2 text-sm text-white/80 font-semibold"
-              >
-                <Phone className="h-4 w-4" aria-hidden="true" />
-                {phone}
-              </a>
+              {phone && (
+                <a
+                  href={`tel:${phone.replace(/[^\d+]/g, "")}`}
+                  className="flex items-center gap-2 text-sm text-white/80 font-semibold"
+                >
+                  <Phone className="h-4 w-4" aria-hidden="true" />
+                  {phone}
+                </a>
+              )}
               <a
                 href={ctaHref}
                 className="block text-center bg-secondary text-white font-semibold px-6 py-3 rounded-md shadow-lg"
