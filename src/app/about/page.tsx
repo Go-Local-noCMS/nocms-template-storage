@@ -88,7 +88,7 @@ export default function AboutPage() {
 
       <CTABanner
         heading="Come See for Yourself"
-        description="Schedule a tour and discover what makes our community special."
+        subheading="Schedule a tour and discover what makes our community special."
         phone={skinConfig.contactPhone}
       />
     </>

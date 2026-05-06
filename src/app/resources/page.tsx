@@ -106,7 +106,7 @@ export default function ResourcesPage() {
 
       <CTABanner
         heading="Have Questions? We Are Here to Help"
-        description="Our team is ready to assist you with any questions about senior living."
+        subheading="Our team is ready to assist you with any questions about senior living."
         primaryCta={{ label: "Contact Us", href: "/contact" }}
         phone={skinConfig.contactPhone}
       />

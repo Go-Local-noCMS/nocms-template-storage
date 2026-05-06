@@ -106,7 +106,7 @@ export default function PricingPage() {
 
       <CTABanner
         heading="Get a Personalized Quote"
-        description="Every family's situation is unique. Contact us for a customized pricing plan tailored to your needs."
+        subheading="Every family's situation is unique. Contact us for a customized pricing plan tailored to your needs."
         primaryCta={{ label: "Request Quote", href: "/contact" }}
         phone={skinConfig.contactPhone}
       />

@@ -1,35 +1,51 @@
+import * as React from "react";
 import { ArrowRight, Phone } from "lucide-react";
+import { RichText } from "@/components/ui/RichText";
 
-interface CtaCta {
+/**
+ * CTA banner — heading + optional subheading + primary/secondary CTAs +
+ * optional phone link. Source: storage-theme-payload `src/blocks/CallToAction`.
+ * Replaces the upstream Lexical `richText` block + `links[]` array with a
+ * pair of simple `{label, href}` props and a plain-string `subheading` fed to
+ * the RichText shim.
+ *
+ * Editor contract: heading carries `data-role="heading"`, subheading wrapper
+ * is plain (RichText is generic), primary CTA carries `data-role="cta"`.
+ */
+
+interface CtaButton {
   label: string;
   href: string;
 }
 
 interface CTABannerProps {
   heading: string;
-  description?: string;
-  primaryCta?: CtaCta;
-  secondaryCta?: CtaCta;
-  variant?: "primary" | "dark" | "accent";
+  subheading?: string;
+  primaryCta?: CtaButton;
+  secondaryCta?: CtaButton;
   phone?: string;
+  variant?: "primary" | "dark" | "accent";
 }
 
 const variantClasses: Record<string, string> = {
   primary: "bg-primary text-white",
-  dark: "bg-rich-brown text-white",
+  dark: "bg-text text-white",
   accent: "bg-accent text-white",
 };
 
 export function CTABanner({
   heading,
-  description,
-  primaryCta = { label: "Schedule a Tour", href: "/schedule-tour" },
+  subheading,
+  primaryCta = { label: "Reserve a unit", href: "/reserve" },
   secondaryCta,
-  variant = "primary",
   phone,
+  variant = "primary",
 }: CTABannerProps) {
   return (
-    <section data-nocms-component="cta-banner" className={`py-16 lg:py-20 ${variantClasses[variant] ?? variantClasses.primary}`}>
+    <section
+      data-nocms-component="cta-banner"
+      className={`py-16 lg:py-20 ${variantClasses[variant] ?? variantClasses.primary}`}
+    >
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
         <h2
           data-role="heading"
@@ -38,8 +54,10 @@ export function CTABanner({
         >
           {heading}
         </h2>
-        {description && (
-          <p className="text-white/85 text-lg mb-8 max-w-2xl mx-auto" data-role="subheading">{description}</p>
+        {subheading && (
+          <div className="text-white/85 text-lg mb-8 max-w-2xl mx-auto">
+            <RichText source={subheading} />
+          </div>
         )}
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
           <a
